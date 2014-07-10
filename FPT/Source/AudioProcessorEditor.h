@@ -24,18 +24,12 @@ public:
     // Inherited from Component
     void resized() override final;
     void paint(Graphics& context) override final;
-    void mouseDown(const MouseEvent& event) override;
-    void mouseUp(const MouseEvent& event) override;
-    void mouseDrag(const MouseEvent& event);
     
 private:
     
     inline FPTAudioProcessor* getProcessor() { return dynamic_cast<FPTAudioProcessor*>(getAudioProcessor());}
     AudioDeviceManager* deviceManager = nullptr;
-    
-    AudioFormatManager formatManager;
-    
-    XmlElement* mainXmlElement;
+    ScopedPointer<TextEditor> numberBox;
 };
 
 

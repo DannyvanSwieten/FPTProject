@@ -64,18 +64,11 @@ public:
     void getStateInformation (juce::MemoryBlock& destData);
     void setStateInformation (const void* data, int sizeInBytes);
     
-    inline juce::MidiKeyboardState& getMidiState() { return keyboardState; }
-    
     TimerValue timeStamp;
-    
-    AudioSampleBuffer buffer;
-//    APAudioVoiceManager sampler;
     
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FPTAudioProcessor)
-    
-    juce::MidiKeyboardState keyboardState;
     
 };
 

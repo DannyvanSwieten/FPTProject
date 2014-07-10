@@ -52,10 +52,7 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::paint (Graphics& g)
 {
-    g.fillAll (Colour (0xffeeddff));
-
-    g.setFont (Font (16.0f));
-    g.setColour (Colours::black);
+    
 }
 
 void MainContentComponent::resized()

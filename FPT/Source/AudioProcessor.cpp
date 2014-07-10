@@ -138,8 +138,8 @@ void FPTAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi
     
     for (int i = 0; i < buffer.getNumSamples(); i++)
     {
-        leftBuffer[i]   = sinf(2*M_PI / 44100 * 880 * timeStamp);
-        rightBuffer[i]  = leftBuffer[i];
+        leftBuffer[i]   = 0;
+        rightBuffer[i]  = 0;
         
         timeStamp++;
     }
