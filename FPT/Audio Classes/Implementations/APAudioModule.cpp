@@ -1,12 +1,12 @@
 //
-//  APAudioModuleCPP.cpp
+//  APAudioModule.
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#include "APAudioModuleCPP.h"
+#include "APAudioModule.h"
 
 APAudioMainFrame::APAudioMainFrame(Sample sr, TimerValue bs)
 {
@@ -19,13 +19,13 @@ APAudioMainFrame::~APAudioMainFrame()
     
 }
 
-void APAudioMainFrame::addModule(APAudioModuleCPP *module)
+void APAudioMainFrame::addModule(APAudioModule *module)
 {
     modules.emplace_back(module);
 }
 
 //--------------------Module-------------------------------
-APAudioModuleCPP::APAudioModuleCPP(APAudioMainFrame* mf)
+APAudioModule::APAudioModule(APAudioMainFrame* mf)
 {
     mf->addModule(this);
     bufferSize = mf->getBufferSize();
@@ -36,22 +36,22 @@ APAudioModuleCPP::APAudioModuleCPP(APAudioMainFrame* mf)
     prevIndex = 0;
 }
 
-void APAudioModuleCPP::setID(juce::String ID)
+void APAudioModule::setID(juce::String ID)
 {
     this->ID = ID;
 }
 
-APAudioModuleCPP::~APAudioModuleCPP()
+APAudioModule::~APAudioModule()
 {
     
 }
 
-void APAudioModuleCPP::connect(APAudioModuleCPP *module)
+void APAudioModule::connect(APAudioModule *module)
 {
     inputList.emplace_back(module);
 }
 
-void APAudioModuleCPP::calculateBuffer()
+void APAudioModule::calculateBuffer()
 {
     
 }

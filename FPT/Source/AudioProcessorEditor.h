@@ -11,15 +11,15 @@
 #ifndef SAMPLERAUDIOPROCESSOREDITOR_H_INCLUDED
 #define SAMPLERAUDIOPROCESSOREDITOR_H_INCLUDED
 
-#include "SamplerAudioProcessor.h"
+#include "AudioProcessor.h"
 
-class SamplerAudioProcessorEditor : public AudioProcessorEditor
+class FPTAudioProcessorEditor : public AudioProcessorEditor
 {
 public:
     // Create the main controller. If no audio device manager is passed that means the editor
     // runs inside a host (as a plugin) and the device can't be changed through the editor.
-    SamplerAudioProcessorEditor(AudioDeviceManager* manager, AudioProcessor& processor);
-    ~SamplerAudioProcessorEditor();
+    FPTAudioProcessorEditor(AudioDeviceManager* manager, AudioProcessor& processor);
+    ~FPTAudioProcessorEditor();
     
     // Inherited from Component
     void resized() override final;
@@ -30,7 +30,7 @@ public:
     
 private:
     
-    inline SamplerAudioProcessor* getProcessor() { return dynamic_cast<SamplerAudioProcessor*>(getAudioProcessor());}
+    inline FPTAudioProcessor* getProcessor() { return dynamic_cast<FPTAudioProcessor*>(getAudioProcessor());}
     AudioDeviceManager* deviceManager = nullptr;
     
     AudioFormatManager formatManager;

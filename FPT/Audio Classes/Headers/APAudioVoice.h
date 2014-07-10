@@ -1,25 +1,25 @@
 //
-//  APAudioVoiceCPP.h
+//  APAudioVoice.h
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#ifndef __APAudioEngine__APAudioVoiceCPP__
-#define __APAudioEngine__APAudioVoiceCPP__
+#ifndef __APAudioEngine__APAudioVoice__
+#define __APAudioEngine__APAudioVoice__
 
 #include "APAudioSoundDescription.h"
 #include "APAudioSampleSound.h"
-#include "APAudioModuleCPP.h"
+#include "APAudioModule.h"
 #include "APAudioEnvelope.h"
 
-class APAudioVoiceCPP
+class APAudioVoice
 {
 public:
     
-    APAudioVoiceCPP();
-    virtual ~APAudioVoiceCPP();
+    APAudioVoice();
+    virtual ~APAudioVoice();
     
     virtual void renderNextBlock (SampleBuffer outputBuffer,
                                   int startSample,
@@ -59,4 +59,4 @@ private:
     UInt voiceNr;
     
 };
-#endif /* defined(__APAudioEngine__APAudioVoiceCPP__) */
+#endif /* defined(__APAudioEngine__APAudioVoice__) */

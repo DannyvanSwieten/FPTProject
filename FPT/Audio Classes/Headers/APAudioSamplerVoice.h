@@ -9,9 +9,9 @@
 #ifndef APAudioEngine_APAudioSamplerVoice_h
 #define APAudioEngine_APAudioSamplerVoice_h
 
-#include "APAudioVoiceCPP.h"
+#include "APAudioVoice.h"
 
-class APAudioSamplerVoice: public APAudioVoiceCPP
+class APAudioSamplerVoice: public APAudioVoice
 {
 public:
     

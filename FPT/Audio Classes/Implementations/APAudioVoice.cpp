@@ -1,45 +1,45 @@
 //
-//  APAudioVoiceCPP.cpp
+//  APAudioVoice.
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#include "APAudioVoiceCPP.h"
+#include "APAudioVoice.h"
 
-APAudioVoiceCPP::APAudioVoiceCPP()
+APAudioVoice::APAudioVoice()
 {
     envelope = new APAudioEnvelope();
 }
 
-APAudioVoiceCPP::~APAudioVoiceCPP()
+APAudioVoice::~APAudioVoice()
 {
     delete sound;
     delete envelope;
 }
 
-void APAudioVoiceCPP::setIsPlaying(bool playing)
+void APAudioVoice::setIsPlaying(bool playing)
 {
     isPlaying = playing;
 }
 
-void APAudioVoiceCPP::setPitch(ControlValue pitch)
+void APAudioVoice::setPitch(ControlValue pitch)
 {
     this->pitch = pitch;
 }
 
-void APAudioVoiceCPP::setID(UInt ID)
+void APAudioVoice::setID(UInt ID)
 {
     voiceID = ID;
 }
 
-void APAudioVoiceCPP::releaseVoice()
+void APAudioVoice::releaseVoice()
 {
     isPlaying = false;
 }
 
-void APAudioVoiceCPP::setSound(APAudioSoundDescription *sound)
+void APAudioVoice::setSound(APAudioSoundDescription *sound)
 {
     this->sound = sound;
 }

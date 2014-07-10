@@ -1,16 +1,16 @@
 /*
   ==============================================================================
 
-    SamplerAudioProcessorEditor.cpp
+    FPTAudioProcessorEditor.cpp
     Created: 5 Jun 2014 4:03:32pm
     Author:  Danny van Swieten
 
   ==============================================================================
 */
 
-#include "SamplerAudioProcessorEditor.h"
+#include "AudioProcessorEditor.h"
 
-SamplerAudioProcessorEditor::SamplerAudioProcessorEditor(AudioDeviceManager* manager,
+FPTAudioProcessorEditor::FPTAudioProcessorEditor(AudioDeviceManager* manager,
                                            AudioProcessor& processor):
 AudioProcessorEditor(&processor)
 {
@@ -20,23 +20,23 @@ AudioProcessorEditor(&processor)
     setOpaque (true);
 }
 
-SamplerAudioProcessorEditor::~SamplerAudioProcessorEditor()
+FPTAudioProcessorEditor::~FPTAudioProcessorEditor()
 {
     
 }
 
-void SamplerAudioProcessorEditor::resized()
+void FPTAudioProcessorEditor::resized()
 {
     
 }
 
-void SamplerAudioProcessorEditor::paint(juce::Graphics &context)
+void FPTAudioProcessorEditor::paint(juce::Graphics &context)
 {
     context.fillAll (Colours::grey.withAlpha((float).7));
     context.setOpacity(.5);
 }
 
-void SamplerAudioProcessorEditor::mouseDown(const juce::MouseEvent &event)
+void FPTAudioProcessorEditor::mouseDown(const juce::MouseEvent &event)
 {
     repaint();
     
@@ -58,12 +58,12 @@ void SamplerAudioProcessorEditor::mouseDown(const juce::MouseEvent &event)
     }
 }
 
-void SamplerAudioProcessorEditor::mouseUp(const juce::MouseEvent &event)
+void FPTAudioProcessorEditor::mouseUp(const juce::MouseEvent &event)
 {
 
 }
 
-void SamplerAudioProcessorEditor::mouseDrag(const juce::MouseEvent &event)
+void FPTAudioProcessorEditor::mouseDrag(const juce::MouseEvent &event)
 {
 
 }

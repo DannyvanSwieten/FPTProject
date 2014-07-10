@@ -3,35 +3,88 @@
 <JUCERPROJECT id="SJ5rAs" name="FPT" projectType="guiapp" version="1.0.0" bundleIdentifier="com.yourcompany.FPT"
               includeBinaryInAppConfig="1" jucerVersion="3.1.0">
   <MAINGROUP id="fNjNXm" name="FPT">
+    <GROUP id="{89DF8721-9744-4F34-6742-112C23B78022}" name="FPT Classes">
+      <FILE id="oJNcEt" name="FPTEvent.cpp" compile="1" resource="0" file="FPT Classes/FPTEvent.cpp"/>
+      <FILE id="Fi3Vom" name="FPTEvent.h" compile="0" resource="0" file="FPT Classes/FPTEvent.h"/>
+      <FILE id="D2XNDz" name="FPTScheduler.cpp" compile="1" resource="0"
+            file="FPT Classes/FPTScheduler.cpp"/>
+      <FILE id="I3Je3K" name="FPTScheduler.h" compile="0" resource="0" file="FPT Classes/FPTScheduler.h"/>
+    </GROUP>
+    <GROUP id="{E709938E-EE2F-4C90-0765-97ACC212E2C1}" name="Audio Classes">
+      <FILE id="s0FVI6" name="APAudioEnvelope.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioEnvelope.cpp"/>
+      <FILE id="i8r8xX" name="APAudioEnvelope.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioEnvelope.h"/>
+      <FILE id="dAnHlU" name="APAudioDecimatorModule.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioDecimatorModule.cpp"/>
+      <FILE id="nGDP81" name="APAudioModule.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioModule.cpp"/>
+      <FILE id="SPkeZ2" name="APAudioParameter.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioParameter.cpp"/>
+      <FILE id="BzUgfO" name="APAudioSamplerVoice.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioSamplerVoice.cpp"/>
+      <FILE id="cCjlFE" name="APAudioSampleSound.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioSampleSound.cpp"/>
+      <FILE id="sfJTUu" name="APAudioSoundDescription.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioSoundDescription.cpp"/>
+      <FILE id="yumGNM" name="APAudioVoice.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioVoice.cpp"/>
+      <FILE id="K489kZ" name="APAudioVoiceManager.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioVoiceManager.cpp"/>
+      <FILE id="MOQAfa" name="APAudioDecimatorModule.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioDecimatorModule.h"/>
+      <FILE id="OxHFZp" name="APAudioModule.h" compile="0" resource="0" file="Audio Classes/Headers/APAudioModule.h"/>
+      <FILE id="No5ZIz" name="APAudioParameter.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioParameter.h"/>
+      <FILE id="cGIVV2" name="APAudioSamplerVoice.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioSamplerVoice.h"/>
+      <FILE id="Y4Yih8" name="APAudioSampleSound.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioSampleSound.h"/>
+      <FILE id="wTGQXC" name="APAudioSoundDescription.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioSoundDescription.h"/>
+      <FILE id="OwsDFj" name="APAudioVoice.h" compile="0" resource="0" file="Audio Classes/Headers/APAudioVoice.h"/>
+      <FILE id="OY2Q8W" name="APAudioVoiceManager.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioVoiceManager.h"/>
+    </GROUP>
     <GROUP id="{F8CAC06C-CFD9-4762-D641-AF31252F1BC1}" name="Source">
-      <FILE id="d43m0a" name="MainComponent.cpp" compile="1" resource="0"
+      <FILE id="LjJcSv" name="AudioProcessor.cpp" compile="1" resource="0"
+            file="Source/AudioProcessor.cpp"/>
+      <FILE id="jvJ6dU" name="AudioProcessor.h" compile="0" resource="0"
+            file="Source/AudioProcessor.h"/>
+      <FILE id="RkEHvs" name="AudioProcessorEditor.cpp" compile="1" resource="0"
+            file="Source/AudioProcessorEditor.cpp"/>
+      <FILE id="nQos69" name="AudioProcessorEditor.h" compile="0" resource="0"
+            file="Source/AudioProcessorEditor.h"/>
+      <FILE id="Rq2QzA" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="RHryXm" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
-      <FILE id="xP5NNL" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
-      <FILE id="iYcpYU" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="UQ750e" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
-                       isDebug="1" optimisation="1" targetName="FPT"/>
+                       isDebug="1" optimisation="1" targetName="FPT" cppLibType="libc++"/>
         <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
-                       isDebug="0" optimisation="3" targetName="FPT" linkTimeOptimisation="1"/>
+                       isDebug="0" optimisation="3" targetName="FPT" linkTimeOptimisation="1"
+                       cppLibType="libc++"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_video" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../juce/modules"/>
+        <MODULEPATH id="juce_core" path="juce"/>
+        <MODULEPATH id="juce_events" path="juce"/>
+        <MODULEPATH id="juce_graphics" path="juce"/>
+        <MODULEPATH id="juce_data_structures" path="juce"/>
+        <MODULEPATH id="juce_gui_basics" path="juce"/>
+        <MODULEPATH id="juce_gui_extra" path="juce"/>
+        <MODULEPATH id="juce_cryptography" path="juce"/>
+        <MODULEPATH id="juce_video" path="juce"/>
+        <MODULEPATH id="juce_opengl" path="juce"/>
+        <MODULEPATH id="juce_audio_basics" path="juce"/>
+        <MODULEPATH id="juce_audio_devices" path="juce"/>
+        <MODULEPATH id="juce_audio_formats" path="juce"/>
+        <MODULEPATH id="juce_audio_processors" path="juce"/>
+        <MODULEPATH id="juce_audio_utils" path="juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
@@ -40,6 +93,7 @@
     <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="1"/>
     <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="1"/>
     <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="1"/>
     <MODULES id="juce_core" showAllCode="1" useLocalCopy="1"/>
     <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="1"/>
     <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>

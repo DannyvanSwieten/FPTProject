@@ -9,9 +9,9 @@
 #ifndef __APAudioEngine__APAudioDecimatorModule__
 #define __APAudioEngine__APAudioDecimatorModule__
 
-#include "APAudioModuleCPP.h"
+#include "APAudioModule.h"
 
-class APAudioDecimatorModule: public APAudioModuleCPP
+class APAudioDecimatorModule: public APAudioModule
 {
 public:
     

@@ -1,22 +1,22 @@
 //
-//  APAudioParameterCPP.h
+//  APAudioParameter.h
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#ifndef __APAudioEngine__APAudioParameterCPP__
-#define __APAudioEngine__APAudioParameterCPP__
+#ifndef __APAudioEngine__APAudioParameter__
+#define __APAudioEngine__APAudioParameter__
 
-#include "APAudioModuleCPP.h"
+#include "APAudioModule.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
-class APAudioParameterCPP
+class APAudioParameter
 {
 public:
     
-    APAudioParameterCPP(ControlValue min,
+    APAudioParameter(ControlValue min,
                         ControlValue max,
                         ControlValue start,
                         juce::String identification);
@@ -39,4 +39,4 @@ private:
     juce::String ID;
 };
 
-#endif /* defined(__APAudioEngine__APAudioParameterCPP__) */
+#endif /* defined(__APAudioEngine__APAudioParameter__) */

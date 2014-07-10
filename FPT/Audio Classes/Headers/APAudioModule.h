@@ -1,13 +1,13 @@
 //
-//  APAudioModuleCPP.h
+//  APAudioModule.h
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#ifndef __APAudioEngine__APAudioModuleCPP__
-#define __APAudioEngine__APAudioModuleCPP__
+#ifndef __APAudioEngine__APAudioModule__
+#define __APAudioEngine__APAudioModule__
 
 #include <vector>
 #include <stdlib.h>
@@ -24,8 +24,8 @@ using ControlValue  = double;
 using TimerValue     = unsigned int;
 using UInt          = unsigned int;
 
-class APAudioModuleCPP;
-class APAudioParameterCPP;
+class APAudioModule;
+class APAudioParameter;
 
 class APAudioMainFrame
 {
@@ -33,23 +33,23 @@ public:
     
     APAudioMainFrame(Sample sr, TimerValue bs);
     virtual ~APAudioMainFrame();
-    void addModule(APAudioModuleCPP* module);
+    void addModule(APAudioModule* module);
     
     inline ControlValue getSampleRate(){return sampleRate;};
     inline TimerValue   getBufferSize(){return bufferSize;};
     
 private:
-    std::vector<APAudioModuleCPP*> modules;
+    std::vector<APAudioModule*> modules;
     ControlValue    sampleRate;
     TimerValue      bufferSize;
 };
 
-class APAudioModuleCPP
+class APAudioModule
 {
 public:
     
-    APAudioModuleCPP(APAudioMainFrame* mf);
-    virtual ~APAudioModuleCPP();
+    APAudioModule(APAudioMainFrame* mf);
+    virtual ~APAudioModule();
     virtual void calculateBuffer();
     
     void setID(juce::String ID);
@@ -83,14 +83,14 @@ public:
         return outputSample;
     };
     
-    void   connect(APAudioModuleCPP* module);
+    void   connect(APAudioModule* module);
     
     inline Sample getSampleRate(){return sampleRate;};
     inline TimerValue getBufferSize(){return bufferSize;};
     
     SampleBuffer    outputBuffer;
-    std::vector<APAudioModuleCPP*> inputList;
-    std::vector<APAudioParameterCPP*> parameters;
+    std::vector<APAudioModule*> inputList;
+    std::vector<APAudioParameter*> parameters;
 private:
     
     TimerValue  bufferSize;
@@ -105,4 +105,4 @@ private:
 
 
 
-#endif /* defined(__APAudioEngine__APAudioModuleCPP__) */
+#endif /* defined(__APAudioEngine__APAudioModule__) */

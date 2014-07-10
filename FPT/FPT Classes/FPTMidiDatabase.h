@@ -11,7 +11,6 @@
 #ifndef FPTMIDIDATABASE_H_INCLUDED
 #define FPTMIDIDATABASE_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
 #include "FPTMidiData.h"
 #include "FPTMidiLoader.h"
 

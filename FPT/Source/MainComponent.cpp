@@ -8,28 +8,53 @@
 
 #include "MainComponent.h"
 
-
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
-    setSize (500, 400);
-    openXMLButton = new TextButton(String("Open XML-File"));
-    openXMLButton->setBounds(0, 0, 100, 20);
-    openXMLButton->addListener(this);
-    addAndMakeVisible(openXMLButton);
+    juce::AudioDeviceManager::AudioDeviceSetup setup;
+    setup.sampleRate = 44100;
+    setup.bufferSize = 512;
+    setup.outputDeviceName = "";
+    setup.inputDeviceName = "";
+    setup.outputChannels = 2;
+    setup.inputChannels = 0;
     
-    musicParser = new FPTMusicParser();
+//    ScopedPointer<XmlElement> savedAudioState (appProperties->getUserSettings()
+//                                               ->getXmlValue ("audioDeviceState"));
+    
+    
+    
+    String errorCode = deviceManager.initialise(0, 2, nullptr, true, String::empty, &setup);
+    std::cout << errorCode;
+    assert(errorCode == "");
+    
+    audioProcessor = new FPTAudioProcessor();
+    player.setProcessor(audioProcessor);
+    deviceManager.addAudioCallback(&player);
+    
+    StringArray midiDevices = MidiInput::getDevices();
+    
+    for (int i = 0; i < midiDevices.size(); i++)
+    {
+        deviceManager.setMidiInputEnabled(midiDevices[i], true);
+        deviceManager.addMidiInputCallback(midiDevices[i], &player);
+    }
+    
+    editor = new FPTAudioProcessorEditor(&deviceManager, *audioProcessor);
+    
+    setSize(800, 600);
+    addAndMakeVisible(*editor);
 }
 
 MainContentComponent::~MainContentComponent()
 {
-    delete openXMLButton;
-    delete musicParser;
 }
 
 void MainContentComponent::paint (Graphics& g)
 {
-    g.fillAll (Colours::white);
+    g.fillAll (Colour (0xffeeddff));
+
+    g.setFont (Font (16.0f));
     g.setColour (Colours::black);
 }
 
@@ -38,10 +63,4 @@ void MainContentComponent::resized()
     // This is called when the MainContentComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
-}
-
-void MainContentComponent::buttonClicked(juce::Button *buttonThatWasClicked)
-{
-    musicParser->loadMusicFile();
-    musicParser->checkForEvents();
 }

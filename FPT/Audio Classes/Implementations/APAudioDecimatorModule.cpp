@@ -8,7 +8,7 @@
 
 #include "APAudioDecimatorModule.h"
 
-APAudioDecimatorModule::APAudioDecimatorModule(APAudioMainFrame* mf): APAudioModuleCPP(mf)
+APAudioDecimatorModule::APAudioDecimatorModule(APAudioMainFrame* mf): APAudioModule(mf)
 {
     outputSample = 0;
     bitRate = getSampleRate();

@@ -12,15 +12,15 @@
 #define SAMPLERAUDIOPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "APAudioModuleCPP.h"
-#include "APAudioVoiceManagerCPP.h"
+#include "APAudioModule.h"
+#include "APAudioVoiceManager.h"
 
-class SamplerAudioProcessor : public AudioProcessor
+class FPTAudioProcessor : public AudioProcessor
 {
 public:
     //==============================================================================
-    SamplerAudioProcessor();
-    ~SamplerAudioProcessor();
+    FPTAudioProcessor();
+    ~FPTAudioProcessor();
     
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock);
@@ -73,7 +73,7 @@ public:
     
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SamplerAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FPTAudioProcessor)
     
     juce::MidiKeyboardState keyboardState;
     

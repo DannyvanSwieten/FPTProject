@@ -10,6 +10,7 @@
 #define __FPT__FPTMusicParser__
 
 #include "../JuceLibraryCode/JuceHeader.h"
+
 #include "FPTEventHandler.h"
 #include "FPTEvent.h"
 
@@ -24,6 +25,7 @@ public:
     void checkForEvents();
     
 private:
+    
     XmlElement* mainXmlElement;
     FPTEventHandler* eventHandler;
 };

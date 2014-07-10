@@ -1,14 +1,14 @@
 //
-//  APAudioVoiceManagerCPP.cpp
+//  APAudioVoiceManager.
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#include "APAudioVoiceManagerCPP.h"
+#include "APAudioVoiceManager.h"
 
-APAudioVoiceManager::APAudioVoiceManager(APAudioMainFrame* mf, UInt channel): APAudioModuleCPP(mf)
+APAudioVoiceManager::APAudioVoiceManager(APAudioMainFrame* mf, UInt channel): APAudioModule(mf)
 {
     activeVoices = 0;
     APAudioSampleSound* sound = new APAudioSampleSound();
@@ -20,7 +20,7 @@ APAudioVoiceManager::APAudioVoiceManager(APAudioMainFrame* mf, UInt channel): AP
 
 void APAudioVoiceManager::addSamplerVoice()
 {
-    APAudioVoiceCPP* newVoice = new APAudioSamplerVoice();
+    APAudioVoice* newVoice = new APAudioSamplerVoice();
     voices.emplace_back(newVoice);
 }
 
@@ -29,7 +29,7 @@ void APAudioVoiceManager::destroyAllVoices()
     voices.clear();
 }
 
-APAudioVoiceCPP* APAudioVoiceManager::findFreeVoice(APAudioSoundDescription* sound, ControlValue pitch)
+APAudioVoice* APAudioVoiceManager::findFreeVoice(APAudioSoundDescription* sound, ControlValue pitch)
 {
     if (!voices.empty())
     {
@@ -81,7 +81,7 @@ void APAudioVoiceManager::updatePitch(ControlValue pitch, ControlValue ID)
     }
 }
 
-void APAudioVoiceManager::startVoice(APAudioVoiceCPP *freeVoice, APAudioSoundDescription* sound, ControlValue pitch, ControlValue velocity)
+void APAudioVoiceManager::startVoice(APAudioVoice *freeVoice, APAudioSoundDescription* sound, ControlValue pitch, ControlValue velocity)
 {
     if (freeVoice != nullptr && freeVoice->canPlaySound(sound))
     {

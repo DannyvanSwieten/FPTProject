@@ -11,6 +11,7 @@
 #ifndef FPTMIDIDATA_H_INCLUDED
 #define FPTMIDIDATA_H_INCLUDED
 
+#include <vector>
 #include "../JuceLibraryCode/JuceHeader.h"
 
 class FPTMidiData

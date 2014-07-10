@@ -9,7 +9,7 @@
 #ifndef __APAudioEngine__APAudioSoundDescription__
 #define __APAudioEngine__APAudioSoundDescription__
 
-#include "APAudioModuleCPP.h"
+#include "APAudioModule.h"
 
 class APAudioSoundDescription
 {

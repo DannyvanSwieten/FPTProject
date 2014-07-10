@@ -1,15 +1,15 @@
 //
-//  APAudioFileManagerCPP.h
+//  APAudioFileManager.h
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#ifndef __APAudioEngine__APAudioFileManagerCPP__
-#define __APAudioEngine__APAudioFileManagerCPP__
+#ifndef __APAudioEngine__APAudioFileManager__
+#define __APAudioEngine__APAudioFileManager__
 
-#include "APAudioProcessorCPP.h"
+#include "APAudioProcessor.h"
 
 struct AudioFile
 {
@@ -20,11 +20,11 @@ struct AudioFile
     std::string     name;
 };
 
-class APAudioFileManagerCPP
+class APAudioFileManager
 {
 public:
     
-    APAudioFileManagerCPP();
+    APAudioFileManager();
     OSStatus getAvailableSoundFileLibraries();
     OSStatus getFileListForSoundFileLibrary(NSString* libraryName);
     OSStatus loadFile(NSString* fileName, NSString* libraryName);
@@ -47,4 +47,4 @@ private:
     std::vector<AudioFile>               audioFiles;
 };
 
-#endif /* defined(__APAudioEngine__APAudioFileManagerCPP__) */
+#endif /* defined(__APAudioEngine__APAudioFileManager__) */

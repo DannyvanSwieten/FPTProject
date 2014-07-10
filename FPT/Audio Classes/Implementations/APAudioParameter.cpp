@@ -1,14 +1,14 @@
 //
-//  APAudioParameterCPP.cpp
+//  APAudioParameter.
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#include "APAudioParameterCPP.h"
+#include "APAudioParameter.h"
 
-APAudioParameterCPP::APAudioParameterCPP(ControlValue min,
+APAudioParameter::APAudioParameter(ControlValue min,
                                          ControlValue max,
                                          ControlValue start,
                                          juce::String identification)
@@ -20,17 +20,17 @@ APAudioParameterCPP::APAudioParameterCPP(ControlValue min,
     ID = identification;
 }
 
-void APAudioParameterCPP::setMinValue(ControlValue value)
+void APAudioParameter::setMinValue(ControlValue value)
 {
     minValue = value;
 }
 
-void APAudioParameterCPP::setMaxValue(ControlValue value)
+void APAudioParameter::setMaxValue(ControlValue value)
 {
     maxValue = value;
 }
 
-void APAudioParameterCPP::setValue(ControlValue value)
+void APAudioParameter::setValue(ControlValue value)
 {
     if (value <= maxValue)
         currentValue = value;

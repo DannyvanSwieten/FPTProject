@@ -1,14 +1,14 @@
 //
-//  APAudioFileManagerCPP.cpp
+//  APAudioFileManager.
 //  APAudioEngine
 //
 //  Created by Danny van Swieten on 07-05-14.
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#include "APAudioFileManagerCPP.h"
+#include "APAudioFileManager.h"
 
-APAudioFileManagerCPP::APAudioFileManagerCPP()
+APAudioFileManager::APAudioFileManager()
 {
     setupMonoStreamFormat();
     setupStereoStreamFormat();
@@ -16,7 +16,7 @@ APAudioFileManagerCPP::APAudioFileManagerCPP()
 
 }
 
-AudioFile* APAudioFileManagerCPP::findFile(std::string fileName)
+AudioFile* APAudioFileManager::findFile(std::string fileName)
 {
     for(auto& file : audioFiles)
     {
@@ -29,7 +29,7 @@ AudioFile* APAudioFileManagerCPP::findFile(std::string fileName)
     return nullptr;
 }
 
-OSStatus APAudioFileManagerCPP::getAvailableSoundFileLibraries()
+OSStatus APAudioFileManager::getAvailableSoundFileLibraries()
 {
     OSStatus error = noErr;
     NSError* result;
@@ -45,7 +45,7 @@ OSStatus APAudioFileManagerCPP::getAvailableSoundFileLibraries()
     return error;
 }
 
-OSStatus APAudioFileManagerCPP::getFileListForSoundFileLibrary(NSString* libraryName)
+OSStatus APAudioFileManager::getFileListForSoundFileLibrary(NSString* libraryName)
 {
     OSStatus error = noErr;
     NSError* result;
@@ -75,7 +75,7 @@ OSStatus APAudioFileManagerCPP::getFileListForSoundFileLibrary(NSString* library
     return error;
 }
 
-OSStatus APAudioFileManagerCPP::loadFile(NSString* fileName, NSString* libraryName)
+OSStatus APAudioFileManager::loadFile(NSString* fileName, NSString* libraryName)
 {
     OSStatus error = noErr;
     UInt16 fileIndex = 0;
@@ -222,7 +222,7 @@ OSStatus APAudioFileManagerCPP::loadFile(NSString* fileName, NSString* libraryNa
     return error;
 }
 
-OSStatus APAudioFileManagerCPP::setupStereoStreamFormat()
+OSStatus APAudioFileManager::setupStereoStreamFormat()
 {
     OSStatus result = noErr;
     
@@ -247,7 +247,7 @@ OSStatus APAudioFileManagerCPP::setupStereoStreamFormat()
     return result;
 }
 
-OSStatus APAudioFileManagerCPP::setupMonoStreamFormat()
+OSStatus APAudioFileManager::setupMonoStreamFormat()
 {
     OSStatus result = noErr;
     
