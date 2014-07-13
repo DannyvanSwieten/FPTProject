@@ -18,18 +18,21 @@ APAudioSourceManager::~APAudioSourceManager()
     
 }
 
-void APAudioSourceManager::loadFile()
+APAudioSoundDescription* APAudioSourceManager::loadFile()
 {
     FileChooser loadFile("Select audio file",
                          File::getSpecialLocation(File::userHomeDirectory),
                          "*.wav");
+    APAudioSoundDescription* desc = new APAudioSampleSound();
+    
     if(loadFile.browseForFileToOpen())
     {
         File audioFile = loadFile.getResult();
         formatReader = formatManager.createReaderFor(audioFile);
         AudioSampleBuffer buffer;
         formatReader->read(&buffer, 0, formatReader->lengthInSamples, 0, 1, 1);
-        APAudioSoundDescription* desc = new APAudioSampleSound();
         desc->setData(buffer);
     }
+    
+    return desc;
 }

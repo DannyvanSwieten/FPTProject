@@ -10,11 +10,7 @@
 
 APAudioSampleSound::APAudioSampleSound(): APAudioSoundDescription()
 {
-    currentPosition = 0;
-    grainSize   = 44 * 500;
-    hopSize     = 44 * 500;
-    
-    hann = new Sample[grainSize];
+
 }
 
 APAudioSampleSound::~APAudioSampleSound()

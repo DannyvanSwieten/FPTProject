@@ -17,7 +17,7 @@ public:
     APAudioSourceManager();
     ~APAudioSourceManager();
     
-    void loadFile();
+    APAudioSoundDescription* loadFile();
     
 private:
     

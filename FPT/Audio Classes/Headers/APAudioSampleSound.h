@@ -22,13 +22,8 @@ public:
     bool listensToNote(ControlValue note) override;
     bool listensToChannel(ControlValue channel) override;
     
-    TimerValue grainSize;
-    TimerValue hopSize;
-    TimerValue currentPosition;
-    
 private:
-    
-    Sample* hann;
+
 };
 
 #endif /* defined(__APAudioEngine__APAudioSampleSound__) */

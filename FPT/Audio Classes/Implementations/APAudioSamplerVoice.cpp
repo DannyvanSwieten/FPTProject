@@ -26,8 +26,7 @@ bool APAudioSamplerVoice::canPlaySound(APAudioSoundDescription *sound)
 
 void APAudioSamplerVoice::reset()
 {
-    APAudioSampleSound* thisSound = dynamic_cast<APAudioSampleSound*>(getSound());
-    thisSound->currentPosition = 0;
+
 }
 
 void APAudioSamplerVoice::stopVoice()
