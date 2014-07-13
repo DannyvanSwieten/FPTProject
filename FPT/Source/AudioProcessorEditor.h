@@ -12,8 +12,9 @@
 #define SAMPLERAUDIOPROCESSOREDITOR_H_INCLUDED
 
 #include "AudioProcessor.h"
+#include <vector>
 
-class FPTAudioProcessorEditor : public AudioProcessorEditor
+class FPTAudioProcessorEditor : public AudioProcessorEditor, public TextEditor::Listener
 {
 public:
     // Create the main controller. If no audio device manager is passed that means the editor
@@ -22,14 +23,19 @@ public:
     ~FPTAudioProcessorEditor();
     
     // Inherited from Component
+    
     void resized() override final;
     void paint(Graphics& context) override final;
+    
+    // Inherited from TextEditor::Listener
+    void textEditorReturnKeyPressed (TextEditor&) override;
     
 private:
     
     inline FPTAudioProcessor* getProcessor() { return dynamic_cast<FPTAudioProcessor*>(getAudioProcessor());}
     AudioDeviceManager* deviceManager = nullptr;
     ScopedPointer<TextEditor> numberBox;
+    std::vector<unsigned int> numbers;
 };
 
 

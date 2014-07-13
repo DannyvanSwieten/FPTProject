@@ -14,6 +14,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "APAudioModule.h"
 #include "APAudioVoiceManager.h"
+#include "FPTScheduler.h"
 
 class FPTAudioProcessor : public AudioProcessor
 {
@@ -65,8 +66,9 @@ public:
     void setStateInformation (const void* data, int sizeInBytes);
     
     TimerValue timeStamp;
-    
+    FPTScheduler scheduler;
 private:
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FPTAudioProcessor)
     

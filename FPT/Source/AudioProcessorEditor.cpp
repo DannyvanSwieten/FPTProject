@@ -19,6 +19,8 @@ AudioProcessorEditor(&processor)
     numberBox->setBounds(25, 25, 150, 25);
     addAndMakeVisible(numberBox);
     
+    numberBox->addListener(this);
+    
     deviceManager = manager;
 }
 
@@ -35,5 +37,12 @@ void FPTAudioProcessorEditor::resized()
 void FPTAudioProcessorEditor::paint(juce::Graphics &context)
 {
     context.fillAll (Colours::grey.withAlpha((float).7));
+}
+
+void FPTAudioProcessorEditor::textEditorReturnKeyPressed (TextEditor& editor)
+{
+    Value number = editor.getTextValue();
+    String result = number.toString();
+    std::cout<<atoi(&result.toRawUTF8()[0])<<std::endl;
 }
 
