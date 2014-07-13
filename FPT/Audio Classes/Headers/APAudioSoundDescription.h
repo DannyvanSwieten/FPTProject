@@ -18,11 +18,24 @@ public:
     
     virtual ~APAudioSoundDescription();
     
-    virtual bool listensToNote(ControlValue note) = 0;
-    virtual bool listensToChannel(ControlValue channel) = 0;
+    virtual bool    listensToNote(ControlValue note) = 0;
+    virtual bool    listensToChannel(ControlValue channel) = 0;
+    
+    void setData(AudioSampleBuffer audioData);
+    
+    void            setRange(ControlValue min, ControlValue max);
+    
+    inline ControlValue getMinNote(){return minNote;};
+    inline ControlValue getMaxNote(){return maxNote;};
+    inline ControlValue getChannel(){return channel;};
+    
+    AudioSampleBuffer data;
     
 private:
     
+    ControlValue minNote;
+    ControlValue maxNote;
+    ControlValue channel;
 };
 
 #endif /* defined(__APAudioEngine__APAudioSoundDescription__) */

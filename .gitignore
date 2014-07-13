@@ -18,3 +18,5 @@ FPT/Builds/MacOSX/build/Debug/FPT.app/Contents/PkgInfo
 *.xcscheme
 
 *.xcbkptlist
+
+*.xcsettings

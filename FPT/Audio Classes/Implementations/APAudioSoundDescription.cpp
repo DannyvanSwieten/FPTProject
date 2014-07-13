@@ -17,3 +17,8 @@ APAudioSoundDescription::~APAudioSoundDescription()
 {
     
 }
+
+void APAudioSoundDescription::setData(juce::AudioSampleBuffer audioData)
+{
+    data = audioData;
+}

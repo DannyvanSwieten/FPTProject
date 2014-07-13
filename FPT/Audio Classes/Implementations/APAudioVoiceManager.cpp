@@ -11,10 +11,6 @@
 APAudioVoiceManager::APAudioVoiceManager(APAudioMainFrame* mf, UInt channel): APAudioModule(mf)
 {
     activeVoices = 0;
-    APAudioSampleSound* sound = new APAudioSampleSound();
-    sound->loadFile("piano.wav");
-    sound->setRange(.5, 5);
-    addSound(sound);
     this->channel = channel;
 }
 
