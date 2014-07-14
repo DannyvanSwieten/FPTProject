@@ -11,6 +11,10 @@
       <FILE id="I3Je3K" name="FPTScheduler.h" compile="0" resource="0" file="FPT Classes/FPTScheduler.h"/>
     </GROUP>
     <GROUP id="{E709938E-EE2F-4C90-0765-97ACC212E2C1}" name="Audio Classes">
+      <FILE id="evgmH4" name="APAudioSourceManager.h" compile="0" resource="0"
+            file="Audio Classes/Headers/APAudioSourceManager.h"/>
+      <FILE id="txj27X" name="APAudioSourceManager.cpp" compile="1" resource="0"
+            file="Audio Classes/Implementations/APAudioSourceManager.cpp"/>
       <FILE id="s0FVI6" name="APAudioEnvelope.cpp" compile="1" resource="0"
             file="Audio Classes/Implementations/APAudioEnvelope.cpp"/>
       <FILE id="i8r8xX" name="APAudioEnvelope.h" compile="0" resource="0"
