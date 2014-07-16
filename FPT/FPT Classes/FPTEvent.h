@@ -11,18 +11,20 @@
 
 #include <functional>
 
+using EventFunction = std::function<void()>;
+
 class FPTEvent
 {
 public:
     FPTEvent();
-    FPTEvent(unsigned long int timeStamp, std::function<void()> function);
+    FPTEvent(unsigned long int timeStamp, EventFunction function);
     ~FPTEvent();
     
     unsigned long int getTimeStamp(){return _timeStamp;};
     void process();
     
 private:
-    std::function<void()> _execute;
+    EventFunction _function;
     unsigned long int _timeStamp;
 };
 

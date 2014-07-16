@@ -18,11 +18,17 @@ public:
     FPTScheduler();
     ~FPTScheduler();
     
-    void addEvent(FPTEvent event);
+    using EventFuntion = std::function<void()>;
+    
+    void addEvent(unsigned long int timeStamp, EventFuntion function);
     void update(unsigned long int timeStamp);
     
+    inline unsigned long int getGurrentTime(){return _currentTime;};
+    
 private:
+    
     std::vector<FPTEvent> _events;
+    unsigned long int _currentTime;
 };
 
 #endif /* defined(__FPTSchedulerTest__FPTScheduler__) */

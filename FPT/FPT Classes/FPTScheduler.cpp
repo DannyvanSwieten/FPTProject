@@ -18,13 +18,14 @@ FPTScheduler::~FPTScheduler()
     
 }
 
-void FPTScheduler::addEvent(FPTEvent event)
+void FPTScheduler::addEvent(unsigned long int timeStamp, EventFuntion function)
 {
-    _events.push_back(event);
+    _events.push_back(FPTEvent(timeStamp, function));
 }
 
 void FPTScheduler::update(unsigned long timeStamp)
 {
+    _currentTime = timeStamp;
     for(auto& event : _events)
     {
         if(timeStamp >= event.getTimeStamp())

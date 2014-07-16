@@ -141,6 +141,7 @@ void FPTAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi
         leftBuffer[i]   = 0;
         rightBuffer[i]  = 0;
         
+        
         scheduler.update(timeStamp);
         timeStamp++;
     }

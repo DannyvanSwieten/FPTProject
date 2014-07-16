@@ -13,10 +13,10 @@ FPTEvent::FPTEvent()
     
 }
 
-FPTEvent::FPTEvent(unsigned long int timeStamp, std::function<void()> function)
+FPTEvent::FPTEvent(unsigned long int timeStamp, EventFunction function)
 {
     _timeStamp = timeStamp;
-    _execute = function;
+    _function = function;
 }
 
 FPTEvent::~FPTEvent()
@@ -26,5 +26,5 @@ FPTEvent::~FPTEvent()
 
 void FPTEvent::process()
 {
-    _execute();
+    _function();
 }
