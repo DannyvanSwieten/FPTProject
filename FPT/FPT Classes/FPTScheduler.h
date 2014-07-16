@@ -20,7 +20,7 @@ public:
     
     using EventFuntion = std::function<void()>;
     
-    void addEvent(unsigned long int timeStamp, EventFuntion function);
+    void addEvent(unsigned long int timeStamp, EventFuntion function, bool repeat);
     void update(unsigned long int timeStamp);
     
     inline unsigned long int getGurrentTime(){return _currentTime;};

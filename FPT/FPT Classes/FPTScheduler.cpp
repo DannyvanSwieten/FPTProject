@@ -18,9 +18,9 @@ FPTScheduler::~FPTScheduler()
     
 }
 
-void FPTScheduler::addEvent(unsigned long int timeStamp, EventFuntion function)
+void FPTScheduler::addEvent(unsigned long int timeStamp, EventFuntion function, bool repeat)
 {
-    _events.push_back(FPTEvent(getGurrentTime() + timeStamp, function));
+    _events.push_back(FPTEvent(getGurrentTime() + timeStamp, function, repeat));
 }
 
 void FPTScheduler::update(unsigned long timeStamp)
@@ -31,6 +31,10 @@ void FPTScheduler::update(unsigned long timeStamp)
         if(timeStamp >= event.getTimeStamp())
         {
             event.process();
+            if (event.getRepeat())
+            {
+                addEvent(event.getTimeStamp(), event.getFunction(), true);
+            }
             _events.pop_back();
         }
     }

@@ -17,15 +17,18 @@ class FPTEvent
 {
 public:
     FPTEvent();
-    FPTEvent(unsigned long int timeStamp, EventFunction function);
+    FPTEvent(unsigned long int timeStamp, EventFunction function, bool repeat);
     ~FPTEvent();
     
-    unsigned long int getTimeStamp(){return _timeStamp;};
+    inline unsigned long int getTimeStamp(){return _timeStamp;};
+    inline EventFunction getFunction(){return _function;};
+    inline bool getRepeat(){return _repeat;};
     void process();
     
 private:
     EventFunction _function;
     unsigned long int _timeStamp;
+    bool _repeat;
 };
 
 #endif /* defined(__FPTSchedulerTest__FPTEvent__) */

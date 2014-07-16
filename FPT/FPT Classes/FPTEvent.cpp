@@ -10,11 +10,12 @@
 
 FPTEvent::FPTEvent()
 {
-    
+    _repeat = false;
 }
 
-FPTEvent::FPTEvent(unsigned long int timeStamp, EventFunction function)
+FPTEvent::FPTEvent(unsigned long int timeStamp, EventFunction function, bool repeat)
 {
+    _repeat = repeat;
     _timeStamp = timeStamp;
     _function = function;
 }

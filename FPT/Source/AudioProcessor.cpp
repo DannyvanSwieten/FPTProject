@@ -135,14 +135,11 @@ void FPTAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi
 {
     float* leftBuffer   = buffer.getWritePointer(0);
     float* rightBuffer  = buffer.getWritePointer(1);
-    
+
     for (int i = 0; i < buffer.getNumSamples(); i++)
     {
         leftBuffer[i]   = 0;
         rightBuffer[i]  = 0;
-        
-        if(timeStamp % 5000 == 0)
-            scheduler.addEvent(5000, [=](){std::cout<<"TimeStamp: "<<timeStamp<<std::endl;});
         
         scheduler.update(timeStamp);
         timeStamp++;
