@@ -20,7 +20,7 @@ FPTScheduler::~FPTScheduler()
 
 void FPTScheduler::addEvent(unsigned long int timeStamp, EventFuntion function)
 {
-    _events.push_back(FPTEvent(timeStamp, function));
+    _events.push_back(FPTEvent(getGurrentTime() + timeStamp, function));
 }
 
 void FPTScheduler::update(unsigned long timeStamp)

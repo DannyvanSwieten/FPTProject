@@ -12,7 +12,7 @@
 
 FPTAudioProcessor::FPTAudioProcessor()
 {
-
+    timeStamp = 0;
 }
 
 FPTAudioProcessor::~FPTAudioProcessor()
@@ -141,6 +141,8 @@ void FPTAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi
         leftBuffer[i]   = 0;
         rightBuffer[i]  = 0;
         
+        if(timeStamp % 44100 == 0)
+            scheduler.addEvent(44100, [=](){std::cout<<"TimeStamp: "<<timeStamp<<std::endl;});
         
         scheduler.update(timeStamp);
         timeStamp++;
