@@ -21,18 +21,22 @@ public:
     virtual bool    listensToNote(ControlValue note) = 0;
     virtual bool    listensToChannel(ControlValue channel) = 0;
     
-    void setData(AudioSampleBuffer audioData);
-    
+    void            setData(AudioSampleBuffer audioData);
+    void            setID(String ID);
     void            setRange(ControlValue min, ControlValue max);
+    void            setLength(unsigned int length);
     
     inline ControlValue getMinNote(){return minNote;};
     inline ControlValue getMaxNote(){return maxNote;};
     inline ControlValue getChannel(){return channel;};
+    inline unsigned int getLength(){return fileLength;};
     
     AudioSampleBuffer data;
     
 private:
     
+    String ID;
+    unsigned int fileLength;
     ControlValue minNote;
     ControlValue maxNote;
     ControlValue channel;

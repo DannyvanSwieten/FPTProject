@@ -8,6 +8,8 @@
   ==============================================================================
 */
 
+#define BUFFERSIZE 16
+
 #include "AudioProcessor.h"
 
 FPTAudioProcessor::FPTAudioProcessor()
@@ -121,9 +123,14 @@ void FPTAudioProcessor::changeProgramName (int index, const String& newName)
 {
 }
 
-void FPTAudioProcessor::prepareToPlay (double ate, int samplesPerBlock)
+void FPTAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+    
+    mainFrame = new APAudioMainFrame(sampleRate, samplesPerBlock);
+    sampler = new APAudioVoiceManager(mainFrame, 0);
+    
     timeStamp = 0;
+//    scheduler.addEvent(5 * 44100, [=](){std::cout<<timeStamp<<std::endl;}, false);
 }
 
 void FPTAudioProcessor::releaseResources()
@@ -136,12 +143,14 @@ void FPTAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midi
     float* leftBuffer   = buffer.getWritePointer(0);
     float* rightBuffer  = buffer.getWritePointer(1);
 
-    for (int i = 0; i < buffer.getNumSamples(); i++)
+    scheduler.update(timeStamp);
+    
+    for (int i = 0; i < buffer.getNumSamples(); i+= BUFFERSIZE)
     {
-        leftBuffer[i]   = 0;
-        rightBuffer[i]  = 0;
-        
         scheduler.update(timeStamp);
+
+        leftBuffer[i]   = sampler->returnOutputSample(timeStamp);
+        rightBuffer[i]  = sampler->returnOutputSample(timeStamp);
         timeStamp++;
     }
 }

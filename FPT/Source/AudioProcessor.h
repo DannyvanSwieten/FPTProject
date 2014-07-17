@@ -15,6 +15,7 @@
 #include "APAudioModule.h"
 #include "APAudioVoiceManager.h"
 #include "FPTScheduler.h"
+#include "APAudioSourceManager.h"
 
 class FPTAudioProcessor : public AudioProcessor
 {
@@ -67,6 +68,9 @@ public:
     
     TimerValue timeStamp;
     FPTScheduler scheduler;
+    APAudioVoiceManager* sampler;
+    APAudioSourceManager fileManager;
+    APAudioMainFrame* mainFrame;
 private:
     
     //==============================================================================

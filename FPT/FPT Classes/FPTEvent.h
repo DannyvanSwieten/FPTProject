@@ -21,14 +21,18 @@ public:
     ~FPTEvent();
     
     inline unsigned long int getTimeStamp(){return _timeStamp;};
+    inline unsigned long int getOffset(){return _offset;};
     inline EventFunction getFunction(){return _function;};
     inline bool getRepeat(){return _repeat;};
+
     void process();
     
 private:
+    
     EventFunction _function;
     unsigned long int _timeStamp;
     bool _repeat;
+    unsigned long int _offset;
 };
 
 #endif /* defined(__FPTSchedulerTest__FPTEvent__) */

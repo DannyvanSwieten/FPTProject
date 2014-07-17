@@ -22,12 +22,14 @@ public:
     
     void addEvent(unsigned long int timeStamp, EventFuntion function, bool repeat);
     void update(unsigned long int timeStamp);
+    void play();
+    void stop();
     
     inline unsigned long int getGurrentTime(){return _currentTime;};
     
 private:
     
-    std::vector<FPTEvent> _events;
+    std::vector<FPTEvent> _timeLine;
     unsigned long int _currentTime;
 };
 

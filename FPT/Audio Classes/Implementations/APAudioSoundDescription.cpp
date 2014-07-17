@@ -18,7 +18,23 @@ APAudioSoundDescription::~APAudioSoundDescription()
     
 }
 
+void APAudioSoundDescription::setRange(ControlValue min, ControlValue max)
+{
+    minNote = min;
+    maxNote = max;
+}
+
+void APAudioSoundDescription::setLength(unsigned int length)
+{
+    fileLength = length;
+}
+
 void APAudioSoundDescription::setData(juce::AudioSampleBuffer audioData)
 {
     data = audioData;
+}
+
+void APAudioSoundDescription::setID(juce::String ID)
+{
+    this->ID = ID;
 }

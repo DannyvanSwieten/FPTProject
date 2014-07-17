@@ -10,7 +10,7 @@
 
 FPTScheduler::FPTScheduler()
 {
-    
+    _currentTime = 0;
 }
 
 FPTScheduler::~FPTScheduler()
@@ -18,24 +18,25 @@ FPTScheduler::~FPTScheduler()
     
 }
 
+void FPTScheduler::play()
+{
+
+}
+
 void FPTScheduler::addEvent(unsigned long int timeStamp, EventFuntion function, bool repeat)
 {
-    _events.push_back(FPTEvent(getGurrentTime() + timeStamp, function, repeat));
+    _timeLine.push_back(FPTEvent(getGurrentTime() + timeStamp, function, repeat));
 }
 
 void FPTScheduler::update(unsigned long timeStamp)
 {
     _currentTime = timeStamp;
-    for(auto& event : _events)
+    for(auto& event : _timeLine)
     {
         if(timeStamp >= event.getTimeStamp())
         {
             event.process();
-            if (event.getRepeat())
-            {
-                addEvent(event.getTimeStamp(), event.getFunction(), true);
-            }
-            _events.pop_back();
+            _timeLine.pop_back();
         }
     }
 }

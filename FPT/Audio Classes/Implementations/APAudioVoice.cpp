@@ -26,7 +26,10 @@ void APAudioVoice::setIsPlaying(bool playing)
 
 void APAudioVoice::setPitch(ControlValue pitch)
 {
-    this->pitch = pitch;
+    if(pitch == 60)
+        this->pitch = 1.0;
+    else
+        this->pitch = (60.0/pitch) + pow(2, (pitch-60.0)/12);
 }
 
 void APAudioVoice::setID(UInt ID)

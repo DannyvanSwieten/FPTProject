@@ -44,16 +44,16 @@ void APAudioSamplerVoice::renderNextBlock (SampleBuffer outputBuffer,
     for (auto i = 0; i < numSamples; i++)
     {
         ControlValue amplitude = getEnvelope()->getAmplitude();
-        Sample outputSample = sound->data.getSample(channel, floorIdx) +
-        frac*(sound->data.getSample(channel, floorIdx + 1) - sound->data.getSample(channel, floorIdx));
         
-        outputBuffer[i] += outputSample * amplitude;
-        
-        if(amplitude == 0.0 && getIsPlaying())
+        if((amplitude == 0.0 && getIsPlaying()) || (idx > sound->getLength()/2))
         {
             idx = 0;
             setIsPlaying(false);
         }
+        Sample outputSample = sound->data.getSample(channel, floorIdx) +
+        frac*(sound->data.getSample(channel, floorIdx + 1) - sound->data.getSample(channel, floorIdx));
+        
+        outputBuffer[i] += outputSample * amplitude;
         
         idx += getPitch();
         floorIdx = (int)idx;

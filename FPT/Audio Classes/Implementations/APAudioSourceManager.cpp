@@ -1,4 +1,4 @@
-//
+    //
 //  APAudioSourceManager.cpp
 //  FPT
 //
@@ -30,8 +30,12 @@ APAudioSoundDescription* APAudioSourceManager::loadFile()
         File audioFile = loadFile.getResult();
         formatReader = formatManager.createReaderFor(audioFile);
         AudioSampleBuffer buffer;
+        buffer.setSize(2, formatReader->lengthInSamples);
         formatReader->read(&buffer, 0, formatReader->lengthInSamples, 0, 1, 1);
         desc->setData(buffer);
+        desc->setRange(36, 88);
+        desc->setID(audioFile.getFileName());
+        desc->setLength(formatReader->lengthInSamples);
     }
     
     return desc;
