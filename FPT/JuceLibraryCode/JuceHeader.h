@@ -37,9 +37,9 @@
 
 namespace ProjectInfo
 {
-    const char* const  projectName    = "FPT";
-    const char* const  versionString  = "1.0.0";
-    const int          versionNumber  = 0x10000;
+//    const char* const  projectName    = "FPT";
+//    const char* const  versionString  = "1.0.0";
+//    const int          versionNumber  = 0x10000;
 }
 
 #endif   // __APPHEADERFILE_SJ5RAS__
