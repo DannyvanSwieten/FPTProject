@@ -32,19 +32,22 @@ void DrawWindow::mouseUp(const juce::MouseEvent &event)
 void DrawWindow::getDrawData()
 {
     MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
-    double input[1024*4];
-    float phinc = 2*M_PI/1024;
+    double input[1024*8];
+    float phinc = 2*M_PI/1024 * 1000;
     float phase = 0;
-    for(auto i = 0; i < 1024 * 4; i++)
+    for(auto i = 0; i < 1024 * 8; i++)
     {
-        input[i] = (rand() % 3) - 1;//sin(phase);
+//        input[i] = (rand() % 3) - 1;//sin(phase);
+        input[i] = sin(phase);//+  sin(phase * 1000);
         phase += phinc;
-        if(i % 1024 == 0)
-            phinc*=2;
     }
-    mainComponent->getDFTAnalyzer()->readAndAnalyse(input, 1024*4);
-    mainComponent->getDFTAnalyzer()->calculateAmplitudes();
-    mainComponent->getDFTAnalyzer()->calculatePhases();
+    if(!mainComponent->_dataWasCalculated)
+    {
+        mainComponent->getDFTAnalyzer()->readAndAnalyse(input, 1024*8);
+        mainComponent->getDFTAnalyzer()->calculateAmplitudes();
+        mainComponent->getDFTAnalyzer()->calculatePhases();
+        mainComponent->_dataWasCalculated = true;
+    }
     _dataWasRead = true;
 }
 
@@ -59,19 +62,20 @@ void DrawWindow::drawSpectogram(juce::Graphics& g)
     int analysisSize = mainComponent->getDFTAnalyzer()->getAmplitudes().size();
     float widthScale = (float)getWidth() / analysisSize;
     float freqPerBin = 44100.0/N;
-    float heightScale = getHeight() / 44100.0;
+    float heightScale = (float)getHeight() / N;
+//    g.setOrigin(0, getHeight());
     
-    for (auto i = 0; i < 4; i++)
+    for (auto i = 0; i < analysisSize; i++)
     {
         for(auto j = 0; j < N; j++)
         {
-            g.setColour(juce::Colour(juce::Colours::black.withAlpha((float)mainComponent->getDFTAnalyzer()->getAmplitudes()[i][j]/128)));
-//            g.setColour(juce::Colour(juce::Colours::black.withAlpha(1.0f / (float)N * j)));
+            float alpha = (float)mainComponent->getDFTAnalyzer()->getAmplitudes()[i][j];
+            g.setColour(juce::Colour(juce::Colours::black.withAlpha(alpha)));
             
             g.fillRect(i * widthScale ,
-                       (float)heightScale * j * freqPerBin,
+                       (float)heightScale * j,
                        (float)widthScale,
-                       (float)freqPerBin*heightScale * 10);
+                       (float)freqPerBin*heightScale);
         }
     }
 }

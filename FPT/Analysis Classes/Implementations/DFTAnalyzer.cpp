@@ -52,7 +52,7 @@ void DFTAnalyzer::calculateAmplitudes()
         std::vector<double> amplitude;
         for(auto n = 0; n < dft.getSize();n++)
         {
-            amplitude.emplace_back( std::abs(_analysisResult[i][n]));
+            amplitude.emplace_back( std::abs(_analysisResult[i][n])/(float)dft.getSize());
         }
         _amplitudes.emplace_back(amplitude);
     }

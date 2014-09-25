@@ -31,6 +31,7 @@ public:
     void paint (Graphics&);
     void resized();
     DFTAnalyzer* getDFTAnalyzer(){return analyzer;};
+    bool _dataWasCalculated = 0;
 
 private:
     

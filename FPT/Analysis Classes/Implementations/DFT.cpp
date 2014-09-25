@@ -60,6 +60,7 @@ void DFT::calculateDFT(double *input)
     {
         _DFTBuffer[n].imag(0.0);
         _DFTBuffer[n].real(input[n] * _window[n]);
+        _DFTResult[n] = std::complex<double>(0,0);
     }
     
     for (auto k = 0; k < _N; k++)
