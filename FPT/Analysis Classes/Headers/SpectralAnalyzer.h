@@ -10,6 +10,8 @@
 #define __DFT__SpectralAnalyzer__
 
 #include <math.h>
+#include <algorithm>
+#include <iostream>
 
 class SpectralAnalyzer
 {

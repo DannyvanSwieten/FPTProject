@@ -68,6 +68,7 @@ private:
     void draw(juce::Graphics& g);
     void drawDFTSpectogram(juce::Graphics& g);
     void drawTransientData(juce::Graphics& g);
+    void drawSpectralFlux(juce::Graphics& g);
     bool _dataWasRead = 0;
     Path _drawPath;
 };

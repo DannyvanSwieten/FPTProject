@@ -20,12 +20,14 @@ public:
     ~DFTAnalyzer();
     
     void readAndAnalyse(double* input, long numberOfSamples) override;
-    void calculateAmplitudes();
-    void calculatePhases();
-    void calculateInstantFrequencies();
+    void calculateAmplitudes()override;
+    void calculatePhases()override;
+    void calculateInstantFrequencies()override;
+    void calculateSpectralFlux();
     std::vector<std::vector<double>> getAmplitudes(){return _amplitudes;};
     std::vector<std::vector<double>> getPhases(){return _phases;};
     std::vector<std::vector<double>> getFrequenies(){return _trueFrequencies;};
+    std::vector<double> getSpectralFlux(){return _spectralFlux;};
 private:
     
     class DFT dft;
@@ -35,6 +37,7 @@ private:
     std::vector<std::vector<double>> _phases;
     std::vector<std::vector<double>> _amplitudes;
     std::vector<std::vector<double>> _trueFrequencies;
+    std::vector<double> _spectralFlux;
 };
 
 #endif /* defined(__DFT__DFTAnalyzer__) */

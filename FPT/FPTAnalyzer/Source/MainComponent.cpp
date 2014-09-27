@@ -37,8 +37,8 @@ MainContentComponent::MainContentComponent()
     double phase = 0;
     for(auto i = 0; i < 1024 * 8; i++)
     {
-        _input[i] = (rand() % 2) - 1;//sin(phase);
-        _input[i] += sin(phase);//+  sin(phase * 1000);
+//        _input[i] = (rand() % 2) - 1;//sin(phase);
+        _input[i] = sin(phase);//+  sin(phase * 1000);
         phase += phinc;
         
         if(i % 1024 == 0)

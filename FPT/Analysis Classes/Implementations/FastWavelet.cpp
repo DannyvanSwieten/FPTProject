@@ -52,6 +52,12 @@ void FastWavelet::forward(double *input, unsigned int N)
         i *= 2;
         j *= 2;
     }
+    std::vector<double> result;
+    for(auto sample = 0; sample < N; sample++)
+    {
+        result.emplace_back(input[sample]);
+    }
+    _result.emplace_back(result);
 }
 
 void FastWavelet::backward(double *input, unsigned int N)

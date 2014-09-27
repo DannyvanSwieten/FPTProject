@@ -22,90 +22,69 @@
   ==============================================================================
 */
 
-// TODO
-class AndroidCameraInternal
+
+CameraDevice::CameraDevice (const String& nm, int index, int minWidth, int minHeight, int maxWidth, int maxHeight)
+   : name (nm), pimpl (new Pimpl (name, index, minWidth, minHeight, maxWidth, maxHeight))
 {
-public:
-    AndroidCameraInternal()
-    {
-    }
-
-    ~AndroidCameraInternal()
-    {
-    }
-
-private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AndroidCameraInternal)
-};
-
-//==============================================================================
-CameraDevice::CameraDevice (const String& name_, int /*index*/)
-    : name (name_)
-{
-    internal = new AndroidCameraInternal();
-
-    // TODO
 }
 
 CameraDevice::~CameraDevice()
 {
     stopRecording();
-    delete static_cast <AndroidCameraInternal*> (internal);
-    internal = 0;
+    pimpl = nullptr;
 }
 
 Component* CameraDevice::createViewerComponent()
 {
-    // TODO
-
-    return nullptr;
-}
-
-String CameraDevice::getFileExtension()
-{
-    return ".m4a";  // TODO correct?
+    return new ViewerComponent (*this);
 }
 
 void CameraDevice::startRecordingToFile (const File& file, int quality)
 {
-    // TODO
+    stopRecording();
+    pimpl->startRecordingToFile (file, quality);
 }
 
 Time CameraDevice::getTimeOfFirstRecordedFrame() const
 {
-    // TODO
-    return Time();
+    return pimpl->getTimeOfFirstRecordedFrame();
 }
 
 void CameraDevice::stopRecording()
 {
-    // TODO
+    pimpl->stopRecording();
 }
 
 void CameraDevice::addListener (Listener* listenerToAdd)
 {
-    // TODO
+    if (listenerToAdd != nullptr)
+        pimpl->addListener (listenerToAdd);
 }
 
 void CameraDevice::removeListener (Listener* listenerToRemove)
 {
-    // TODO
+    if (listenerToRemove != nullptr)
+        pimpl->removeListener (listenerToRemove);
 }
 
+//==============================================================================
 StringArray CameraDevice::getAvailableDevices()
 {
-    StringArray devs;
-
-    // TODO
-
-    return devs;
+    JUCE_AUTORELEASEPOOL
+    {
+        return Pimpl::getAvailableDevices();
+    }
 }
 
 CameraDevice* CameraDevice::openDevice (int index,
                                         int minWidth, int minHeight,
                                         int maxWidth, int maxHeight)
 {
-    // TODO
+    ScopedPointer<CameraDevice> d (new CameraDevice (getAvailableDevices() [index], index,
+                                                     minWidth, minHeight, maxWidth, maxHeight));
+
+    if (d->pimpl->openedOk())
+        return d.release();
 
     return nullptr;
 }

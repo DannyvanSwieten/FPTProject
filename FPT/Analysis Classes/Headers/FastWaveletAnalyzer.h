@@ -6,19 +6,21 @@
 //  Copyright (c) 2014 Danny van Swieten. All rights reserved.
 //
 
-#ifndef __DFT__FastWavelet__
-#define __DFT__FastWavelet__
+#ifndef __DFT__FastWaveletAnalyzer__
+#define __DFT__FastWaveletAnalyzer__
 
+#include "FastWavelet.h"
 #include "SpectralAnalyzer.h"
 
 class FastWaveletAnalyzer: public SpectralAnalyzer
 {
 public:
-    FastWaveletAnalyzer();
+    FastWaveletAnalyzer(unsigned int N, unsigned int overlap);
     ~FastWaveletAnalyzer();
     
 private:
     
+    FastWavelet _wavelet;
     void readAndAnalyse(double* input, long numberOfSamples) override;
     void calculatePhases() override;
     void calculateAmplitudes() override;

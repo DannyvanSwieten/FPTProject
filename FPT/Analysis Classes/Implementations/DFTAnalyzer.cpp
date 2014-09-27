@@ -28,7 +28,7 @@ void DFTAnalyzer::readAndAnalyse(double *input, long numberOfSamples)
     
     while(numberOfSamples > 0)
     {
-        for (auto i = 0; i < getWindowSize(); i++)
+        for (auto i = 0; i < windowSize; i++)
         {
             if(position < numberOfSamples)
                 buffer[i] = input[position++];
@@ -54,6 +54,19 @@ void DFTAnalyzer::calculateAmplitudes()
         {
             amplitude.emplace_back( std::abs(_analysisResult[i][n])/((float)dft.getSize()/2));
         }
+        
+        double max = 0;
+        for (auto sample = 0;sample < dft.getSize(); sample++)
+        {
+            std::cout<<amplitude[sample]<<std::endl;
+            max = std::max(max, amplitude[sample]);
+        }
+        
+        for (auto sample = 0;sample < dft.getSize(); sample++)
+        {
+            if(amplitude[sample] != 0) amplitude[sample] /= max;
+        }
+        
         _amplitudes.emplace_back(amplitude);
     }
 }
@@ -94,4 +107,37 @@ void DFTAnalyzer::calculateInstantFrequencies()
         }
         _trueFrequencies.emplace_back(freq);
     }
+}
+
+void DFTAnalyzer::calculateSpectralFlux()
+{
+    for (auto i = 0; i < _amplitudes.size()-2; i++)
+    {
+        float amplitude = 0;
+        float amplitude2 = 0;
+        float amplitude3 = 0;
+        for (auto j = 0; j < dft.getSize()/2; j++)
+        {
+            amplitude += _amplitudes[i][j];
+            amplitude2 += _amplitudes[i+1][j];
+            amplitude3 += _amplitudes[i+2][j];
+        }
+        float difference1 = amplitude2 - amplitude;
+        float difference2 = amplitude3 = amplitude2;
+        
+        _spectralFlux.emplace_back(difference2 - difference1);
+    }
+    
+    double max = 0;
+    for (auto sample = 0; sample < _spectralFlux.size(); sample++)
+    {
+        max = std::max(max, _spectralFlux[sample]);
+    }
+    
+    for (auto sample = 0;sample < dft.getSize(); sample++)
+    {
+        if(_spectralFlux[sample] != 0) _spectralFlux[sample] /= max;
+//        std::cout<<_spectralFlux[sample]<<std::endl;
+    }
+    
 }
