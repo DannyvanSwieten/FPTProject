@@ -12,6 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 
 #include "DFTAnalyzer.h"
+#include "TransientProcessor.h"
 
 
 //==============================================================================
@@ -30,7 +31,9 @@ public:
 
     void paint (Graphics&);
     void resized();
-    DFTAnalyzer* getDFTAnalyzer(){return analyzer;};
+    double* getData(){return _input;};
+    DFTAnalyzer* getDFTAnalyzer(){return _analyzer;};
+    TransientProcessor* getTransientProcessor(){return _transProcessor;};
     bool _dataWasCalculated = 0;
 
 private:
@@ -40,7 +43,9 @@ private:
     ScopedPointer<DrawWindow> _drawWindow3;
     ScopedPointer<DrawWindow> _drawWindow4;
     
-    DFTAnalyzer* analyzer;
+    ScopedPointer<DFTAnalyzer> _analyzer;
+    ScopedPointer<TransientProcessor> _transProcessor;
+    double* _input = nullptr;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
@@ -57,10 +62,14 @@ public:
     void paint(Graphics& g)override;
     void getDrawData();
     void mouseUp (const MouseEvent& event)override;
-    
+    void mouseDown(const MouseEvent& event)override;
 private:
-    void drawSpectogram(juce::Graphics& g);
+    int _whatToDraw = 0;
+    void draw(juce::Graphics& g);
+    void drawDFTSpectogram(juce::Graphics& g);
+    void drawTransientData(juce::Graphics& g);
     bool _dataWasRead = 0;
+    Path _drawPath;
 };
 
 #endif  // MAINCOMPONENT_H_INCLUDED

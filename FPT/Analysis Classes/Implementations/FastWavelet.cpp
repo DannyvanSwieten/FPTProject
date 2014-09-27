@@ -13,28 +13,76 @@ FastWavelet::FastWavelet()
     
 }
 
-void FastWavelet::process(double* input ,unsigned int N)
+void FastWavelet::process(double* input ,unsigned int N, int direction)
 {
-    int numWavelets = log2(N);
-    int num = numWavelets;
+    if(direction)
+        forward(input, N);
+    else
+        backward(input, N);
+}
+
+void FastWavelet::forward(double *input, unsigned int N)
+{
+    float a;
+    float c;
+    int i;
+    int j;
+    int k;
+    int l;
+    int m;
     
-    std::vector<double> firstWavelet;
     
-    for (auto sample = 0; sample < N; sample += 2)
+    i = 1;
+    j = 2;
+    m = N;
+    
+    for (l = N-1;  l >= 0;  l--)
     {
-        firstWavelet.emplace_back(input[sample]);
-    }
-    _result.emplace_back(firstWavelet);
-    
-    for (auto wavelet = 0; wavelet < numWavelets; wavelet++)
-    {
-        std::vector<double> result;
-        num--;
-        result.resize(1<<num);
-        for (auto sample = 0; sample < result.size(); sample += 2)
+        printf ("l = %d \n", l);
+        m /= 2;
+        
+        for (k = 0;  k < m;  k++)
         {
-            result[sample] = (_result[wavelet][sample]+_result[wavelet][sample+1])/2;
+            a = (input[j*k] + input[j*k+i]) / 2.0;
+            c = (input[j*k] - input[j*k+i]) / 2.0;
+            input[j*k] = a;
+            input[j*k+i] = c;
         }
-        _result.emplace_back(result);
+        
+        i *= 2;
+        j *= 2;
+    }
+}
+
+void FastWavelet::backward(double *input, unsigned int N)
+{
+    float a0;
+    float a1;
+    int i;
+    int j;
+    int k;
+    int l;
+    int m;
+    
+    
+    i = N>>1;
+    j = 2*i;
+    m = 1;
+    
+    for (l = 1;  l <= N;  l++)
+    {
+        printf ("l = %d \n", l);
+        
+        for (k = 0;  k < m;  k++)
+        {
+            a0 = input[j*k] + input[j*k+i];
+            a1 = input[j*k] - input[j*k+i];
+            input[j*k] = a0;
+            input[j*k+i] = a1;
+        }
+        
+        i /= 2;
+        j /= 2;
+        m *= 2;
     }
 }
