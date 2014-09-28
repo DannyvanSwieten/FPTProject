@@ -46,6 +46,7 @@ void DrawWindow::mouseDown(const juce::MouseEvent &event)
         
         _whatToDraw = menu.show();
     }
+    
     repaint();
 }
 
@@ -62,9 +63,11 @@ void DrawWindow::draw(Graphics& g)
             drawDFTSpectogram(g);
             break;
         case 2:
+            getDrawData();
+            drawSpectralFlux(g);
             break;
         case 3:
-            drawSpectralFlux(g);
+            break;
         default:
             
             break;
@@ -73,7 +76,22 @@ void DrawWindow::draw(Graphics& g)
 
 void DrawWindow::getDrawData()
 {
-
+    _drawPath.clear();
+    MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
+    DFTAnalyzer analyzer(1024, 1, HANNING);
+    analyzer.readAndAnalyse(mainComponent->getData(), 1024 * 8);
+    analyzer.calculateAmplitudes();
+    analyzer.calculateSpectralFlux();
+    int analysisSize = analyzer.getSpectralFlux().size();
+    float widthScale = (float)getWidth() / analysisSize;
+    double heightScale = (float)getHeight() / 144;
+    
+    for(auto i = 0; i < analysisSize/2; i++)
+    {
+        float sample = analyzer.getSpectralFlux()[i];
+        _drawPath.lineTo(i * widthScale, fabs(sample * heightScale));
+    }
+    repaint();
 }
 
 void DrawWindow::drawTransientData(juce::Graphics& g)
@@ -114,26 +132,6 @@ void DrawWindow::drawDFTSpectogram(juce::Graphics& g)
 
 void DrawWindow::drawSpectralFlux(juce::Graphics &g)
 {
-//    g.setOrigin(0,getHeight());
-    _drawPath.clear();
-    MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
-    DFTAnalyzer analyzer(1024, 1, HANNING);
-    analyzer.readAndAnalyse(mainComponent->getData(), 1024 * 8);
-    analyzer.calculateAmplitudes();
-    analyzer.calculateSpectralFlux();
-    int analysisSize = analyzer.getSpectralFlux().size();
-    float widthScale = (float)getWidth() / analysisSize;
-    double heightScale = (float)getHeight() / 144;
-    g.setColour(juce::Colour(juce::Colours::black));
-    
-    for(auto i = 0; i < analysisSize; i++)
-    {
-        float sample = 20*log10(analyzer.getSpectralFlux()[i]);
-        if(sample < -144) sample = 144;
-        if(isnan(sample)) sample = -144;
-        _drawPath.lineTo(i * widthScale, fabs(sample * heightScale));
-    }
-    
     g.strokePath(_drawPath, juce::PathStrokeType(1.0));
 }
 

@@ -6,6 +6,7 @@
   <MAINGROUP id="jj1uIz" name="FPTAnalyzer">
     <GROUP id="{CB1D961E-6F0D-0946-A6B3-FA1B1F8BF215}" name="Source">
       <GROUP id="{2C2B341C-75B0-40D6-FC95-2F0E63D648DF}" name="Analysis">
+        <FILE id="dDZrlz" name="DrawWindow.cpp" compile="1" resource="0" file="../GUI Classes/DrawWindow.cpp"/>
         <FILE id="jQbWLs" name="DFT.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/DFT.cpp"/>
         <FILE id="oODUie" name="DFTAnalyzer.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/DFTAnalyzer.cpp"/>
         <FILE id="yEAY5d" name="FastWavelet.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/FastWavelet.cpp"/>

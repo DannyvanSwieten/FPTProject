@@ -58,7 +58,6 @@ void DFTAnalyzer::calculateAmplitudes()
         double max = 0;
         for (auto sample = 0;sample < dft.getSize(); sample++)
         {
-            std::cout<<amplitude[sample]<<std::endl;
             max = std::max(max, amplitude[sample]);
         }
         
