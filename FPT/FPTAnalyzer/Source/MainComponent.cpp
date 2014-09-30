@@ -14,23 +14,14 @@ MainContentComponent::MainContentComponent()
 {
     setSize (1200, 800);
     
-    _drawWindow1 = new DrawWindow();
-    _drawWindow2 = new DrawWindow();
-    _drawWindow3 = new DrawWindow();
-    _drawWindow4 = new DrawWindow();
+    _drawWindow1 = new WaveFormComponent();
+    _drawWindow2 = new AnalysisWindowComponent();
     
-    _drawWindow1->setBounds(0, 0, (getWidth()/2)-2, (getHeight()/2)-2);
-    _drawWindow2->setBounds(getWidth()/2, 0, (getWidth()/2)-2, (getHeight()/2)-2);
-    _drawWindow3->setBounds(0, getHeight()/2, (getWidth()/2)-2, (getHeight()/2)-2);
-    _drawWindow4->setBounds(getWidth()/2, getHeight()/2, (getWidth()/2)-2, (getHeight()/2)-2);
+    _drawWindow1->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
+    _drawWindow2->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
     
     addAndMakeVisible(_drawWindow1);
     addAndMakeVisible(_drawWindow2);
-    addAndMakeVisible(_drawWindow3);
-    addAndMakeVisible(_drawWindow4);
-    
-    _analyzer = new DFTAnalyzer(1024, 1, HANNING);
-    _transProcessor= new TransientProcessor();
     
     _input = new double[1024*8];
     double phinc = (2*M_PI)/1024;

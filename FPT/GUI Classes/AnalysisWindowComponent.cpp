@@ -8,22 +8,22 @@
 
 #include "MainComponent.h"
 
-DrawWindow::DrawWindow()
+AnalysisWindowComponent::AnalysisWindowComponent()
 {
 
 }
 
-DrawWindow::~DrawWindow()
-{
-    
-}
-
-void DrawWindow::resized()
+AnalysisWindowComponent::~AnalysisWindowComponent()
 {
     
 }
 
-void DrawWindow::mouseDown(const juce::MouseEvent &event)
+void AnalysisWindowComponent::resized()
+{
+    
+}
+
+void AnalysisWindowComponent::mouseDown(const juce::MouseEvent &event)
 {
     ModifierKeys modifiers = ModifierKeys::getCurrentModifiersRealtime();
     
@@ -50,12 +50,12 @@ void DrawWindow::mouseDown(const juce::MouseEvent &event)
     repaint();
 }
 
-void DrawWindow::mouseUp(const juce::MouseEvent &event)
+void AnalysisWindowComponent::mouseUp(const juce::MouseEvent &event)
 {
     
 }
 
-void DrawWindow::draw(Graphics& g)
+void AnalysisWindowComponent::draw(Graphics& g)
 {
     switch (_whatToDraw)
     {
@@ -74,7 +74,7 @@ void DrawWindow::draw(Graphics& g)
     }
 }
 
-void DrawWindow::getDrawData()
+void AnalysisWindowComponent::getDrawData()
 {
     _drawPath.clear();
     MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
@@ -94,12 +94,12 @@ void DrawWindow::getDrawData()
     repaint();
 }
 
-void DrawWindow::drawTransientData(juce::Graphics& g)
+void AnalysisWindowComponent::drawTransientData(juce::Graphics& g)
 {
 
 }
 
-void DrawWindow::drawDFTSpectogram(juce::Graphics& g)
+void AnalysisWindowComponent::drawDFTSpectogram(juce::Graphics& g)
 {
     MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
     DFTAnalyzer analyzer(1024, 1, HANNING);
@@ -130,12 +130,12 @@ void DrawWindow::drawDFTSpectogram(juce::Graphics& g)
     }
 }
 
-void DrawWindow::drawSpectralFlux(juce::Graphics &g)
+void AnalysisWindowComponent::drawSpectralFlux(juce::Graphics &g)
 {
     g.strokePath(_drawPath, juce::PathStrokeType(1.0));
 }
 
-void DrawWindow::paint(juce::Graphics& g)
+void AnalysisWindowComponent::paint(juce::Graphics& g)
 {
     g.fillAll(juce::Colour(juce::Colours::white));
 

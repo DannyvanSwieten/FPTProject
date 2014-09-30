@@ -4,37 +4,54 @@
               bundleIdentifier="com.yourcompany.FPTAnalyzer" includeBinaryInAppConfig="1"
               jucerVersion="3.1.0">
   <MAINGROUP id="jj1uIz" name="FPTAnalyzer">
-    <GROUP id="{CB1D961E-6F0D-0946-A6B3-FA1B1F8BF215}" name="Source">
-      <GROUP id="{2C2B341C-75B0-40D6-FC95-2F0E63D648DF}" name="Analysis">
-        <FILE id="dDZrlz" name="DrawWindow.cpp" compile="1" resource="0" file="../GUI Classes/DrawWindow.cpp"/>
-        <FILE id="jQbWLs" name="DFT.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/DFT.cpp"/>
-        <FILE id="oODUie" name="DFTAnalyzer.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/DFTAnalyzer.cpp"/>
+    <GROUP id="{19AF87D9-0D98-35BC-EBD9-B605FF60BC7D}" name="Utilities">
+      <FILE id="ZhhsuO" name="Utility.h" compile="0" resource="0" file="../Analysis Classes/Implementations/Utility.h"/>
+    </GROUP>
+    <GROUP id="{4B0372E1-5969-6D84-018F-4E0495977EC5}" name="Processing">
+      <FILE id="JiBeB5" name="SpectralProcessor.cpp" compile="1" resource="0"
+            file="../Analysis Classes/Implementations/SpectralProcessor.cpp"/>
+      <FILE id="hDLfft" name="TransientProcessor.cpp" compile="1" resource="0"
+            file="../Analysis Classes/Implementations/TransientProcessor.cpp"/>
+      <FILE id="CVxhtR" name="SpectralProcessor.h" compile="0" resource="0"
+            file="../Analysis Classes/Headers/SpectralProcessor.h"/>
+      <FILE id="NJdd4h" name="TransientProcessor.h" compile="0" resource="0"
+            file="../Analysis Classes/Headers/TransientProcessor.h"/>
+    </GROUP>
+    <GROUP id="{2C2B341C-75B0-40D6-FC95-2F0E63D648DF}" name="Analysis">
+      <GROUP id="{A8F7A76F-3B9E-765D-6A7A-8C5F00DF6585}" name="Wavelet">
         <FILE id="yEAY5d" name="FastWavelet.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/FastWavelet.cpp"/>
         <FILE id="J6x1bu" name="FastWaveletAnalyzer.cpp" compile="1" resource="0"
               file="../Analysis Classes/Implementations/FastWaveletAnalyzer.cpp"/>
-        <FILE id="VFN6D4" name="SpectralAnalyzer.cpp" compile="1" resource="0"
-              file="../Analysis Classes/Implementations/SpectralAnalyzer.cpp"/>
-        <FILE id="JiBeB5" name="SpectralProcessor.cpp" compile="1" resource="0"
-              file="../Analysis Classes/Implementations/SpectralProcessor.cpp"/>
-        <FILE id="hDLfft" name="TransientProcessor.cpp" compile="1" resource="0"
-              file="../Analysis Classes/Implementations/TransientProcessor.cpp"/>
-        <FILE id="ZhhsuO" name="Utility.h" compile="0" resource="0" file="../Analysis Classes/Implementations/Utility.h"/>
         <FILE id="DxRU8P" name="WaveletTransform.cpp" compile="1" resource="0"
               file="../Analysis Classes/Implementations/WaveletTransform.cpp"/>
-        <FILE id="sf4WY5" name="DFT.h" compile="0" resource="0" file="../Analysis Classes/Headers/DFT.h"/>
-        <FILE id="SkxFfq" name="DFTAnalyzer.h" compile="0" resource="0" file="../Analysis Classes/Headers/DFTAnalyzer.h"/>
         <FILE id="hHpD3A" name="FastWavelet.h" compile="0" resource="0" file="../Analysis Classes/Headers/FastWavelet.h"/>
         <FILE id="RtDFse" name="FastWaveletAnalyzer.h" compile="0" resource="0"
               file="../Analysis Classes/Headers/FastWaveletAnalyzer.h"/>
-        <FILE id="aX6CyZ" name="SpectralAnalyzer.h" compile="0" resource="0"
-              file="../Analysis Classes/Headers/SpectralAnalyzer.h"/>
-        <FILE id="CVxhtR" name="SpectralProcessor.h" compile="0" resource="0"
-              file="../Analysis Classes/Headers/SpectralProcessor.h"/>
-        <FILE id="NJdd4h" name="TransientProcessor.h" compile="0" resource="0"
-              file="../Analysis Classes/Headers/TransientProcessor.h"/>
         <FILE id="OqrgjT" name="WaveletTransform.h" compile="0" resource="0"
               file="../Analysis Classes/Headers/WaveletTransform.h"/>
       </GROUP>
+      <GROUP id="{31149A52-8F88-EBBE-6391-A8FD8125FE48}" name="Fourier">
+        <FILE id="jQbWLs" name="DFT.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/DFT.cpp"/>
+        <FILE id="oODUie" name="DFTAnalyzer.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/DFTAnalyzer.cpp"/>
+        <FILE id="sf4WY5" name="DFT.h" compile="0" resource="0" file="../Analysis Classes/Headers/DFT.h"/>
+        <FILE id="SkxFfq" name="DFTAnalyzer.h" compile="0" resource="0" file="../Analysis Classes/Headers/DFTAnalyzer.h"/>
+      </GROUP>
+      <FILE id="VFN6D4" name="SpectralAnalyzer.cpp" compile="1" resource="0"
+            file="../Analysis Classes/Implementations/SpectralAnalyzer.cpp"/>
+      <FILE id="aX6CyZ" name="SpectralAnalyzer.h" compile="0" resource="0"
+            file="../Analysis Classes/Headers/SpectralAnalyzer.h"/>
+    </GROUP>
+    <GROUP id="{9C619020-F8B0-97DB-38F7-D1EB66462D0E}" name="GUI">
+      <FILE id="ViLgzQ" name="AnalysisWindowComponent.cpp" compile="1" resource="0"
+            file="../GUI Classes/AnalysisWindowComponent.cpp"/>
+      <FILE id="PrO9uT" name="AnalysisWindowComponent.h" compile="0" resource="0"
+            file="../GUI Classes/AnalysisWindowComponent.h"/>
+      <FILE id="y5FW7w" name="WaveFormComponent.cpp" compile="1" resource="0"
+            file="../GUI Classes/WaveFormComponent.cpp"/>
+      <FILE id="GTpoL7" name="WaveFormComponent.h" compile="0" resource="0"
+            file="../GUI Classes/WaveFormComponent.h"/>
+    </GROUP>
+    <GROUP id="{CB1D961E-6F0D-0946-A6B3-FA1B1F8BF215}" name="Main">
       <FILE id="vbuJFt" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
       <FILE id="erM7o8" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
