@@ -32,6 +32,7 @@ void AnalysisWindowComponent::mouseDown(const juce::MouseEvent &event)
         PopupMenu menu;
         PopupMenu DFT;
         PopupMenu wavelet;
+        PopupMenu fastWavelet;
         
         DFT.addItem(1, "Spectogram");
         DFT.addItem(2, "Spectral Flux");
@@ -41,8 +42,13 @@ void AnalysisWindowComponent::mouseDown(const juce::MouseEvent &event)
         wavelet.addItem(5, "Spectral Flux");
         wavelet.addItem(6, "Phase Difference");
         
+        fastWavelet.addItem(7, "Spectogram");
+        fastWavelet.addItem(8, "Spectral Flux");
+        fastWavelet.addItem(9, "Phase Difference");
+        
         menu.addSubMenu("DFT", DFT);
         menu.addSubMenu("Wavelet", wavelet);
+        menu.addSubMenu("Fast Lifting Wavelet", fastWavelet);
         
         _whatToDraw = menu.show();
     }
