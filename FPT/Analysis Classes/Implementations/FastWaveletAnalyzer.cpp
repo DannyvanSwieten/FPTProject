@@ -33,11 +33,11 @@ void FastWaveletAnalyzer::calculateInstantFrequencies()
     
 }
 
-void FastWaveletAnalyzer::readAndAnalyse(double *input, long numberOfSamples)
+void FastWaveletAnalyzer::readAndAnalyse(const float *input, long numberOfSamples)
 {
     unsigned long position = 0;
     unsigned int windowSize = getWindowSize();
-    double buffer[windowSize];
+    float buffer[windowSize];
     unsigned int hopSize = getHopsise();
     
     while(numberOfSamples > 0)

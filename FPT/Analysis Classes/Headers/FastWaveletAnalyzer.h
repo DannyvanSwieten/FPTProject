@@ -21,7 +21,7 @@ public:
 private:
     
     FastWavelet _wavelet;
-    void readAndAnalyse(double* input, long numberOfSamples) override;
+    void readAndAnalyse(const float* input, long numberOfSamples) override;
     void calculatePhases() override;
     void calculateAmplitudes() override;
     void calculateInstantFrequencies() override;

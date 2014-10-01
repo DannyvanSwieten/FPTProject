@@ -17,13 +17,13 @@ class FastWavelet
 public:
     FastWavelet();
     
-    void process(double* input ,unsigned int N,  int direction);
+    void process(float* input ,unsigned int N,  int direction);
     
 private:
     int _N;
-    std::vector<std::vector<double>> _result;
-    void forward(double* input ,unsigned int N);
-    void backward(double* input ,unsigned int N);
+    std::vector<std::vector<float>> _result;
+    void forward(float* input ,unsigned int N);
+    void backward(float* input ,unsigned int N);
 };
 
 #endif /* defined(__DFT__FastWavelet__) */

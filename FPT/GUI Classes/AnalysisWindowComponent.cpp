@@ -8,14 +8,14 @@
 
 #include "MainComponent.h"
 
-AnalysisWindowComponent::AnalysisWindowComponent()
+AnalysisWindowComponent::AnalysisWindowComponent(APAudioFileManager* fileManager)
 {
-
+    _fileManager = fileManager;
 }
 
 AnalysisWindowComponent::~AnalysisWindowComponent()
 {
-    
+    _fileManager = nullptr;
 }
 
 void AnalysisWindowComponent::resized()
@@ -83,14 +83,13 @@ void AnalysisWindowComponent::draw(Graphics& g)
 void AnalysisWindowComponent::getDrawData()
 {
     _drawPath.clear();
-    MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
     DFTAnalyzer analyzer(1024, 1, HANNING);
-    analyzer.readAndAnalyse(mainComponent->getData(), 1024 * 8);
+//    analyzer.readAndAnalyse(mainComponent->getData(), 1024 * 8);
     analyzer.calculateAmplitudes();
     analyzer.calculateSpectralFlux();
     int analysisSize = analyzer.getSpectralFlux().size();
     float widthScale = (float)getWidth() / analysisSize;
-    double heightScale = (float)getHeight() / 144;
+    float heightScale = (float)getHeight() / 144;
     
     for(auto i = 0; i < analysisSize/2; i++)
     {
@@ -107,33 +106,36 @@ void AnalysisWindowComponent::drawTransientData(juce::Graphics& g)
 
 void AnalysisWindowComponent::drawDFTSpectogram(juce::Graphics& g)
 {
-    MainContentComponent* mainComponent = (MainContentComponent*)getParentComponent();
-    DFTAnalyzer analyzer(1024, 1, HANNING);
+    DFTAnalyzer analyzer(2048, 1, HANNING);
     
-    analyzer.readAndAnalyse(mainComponent->getData(), 1024 * 8);
+    analyzer.readAndAnalyse(_fileManager->getFile(0).getAudioChannel(0), _fileManager->getFile(0).getNumSamples());
     analyzer.calculateAmplitudes();
     
     g.setColour(juce::Colour(juce::Colours::black));
     
     int N = analyzer.getWindowSize()/2.0;
     int analysisSize = analyzer.getAmplitudes().size();
-    float widthScale = (float)getWidth() / analysisSize;
-    double heightScale = (float)getHeight() / N;
-    g.setOrigin(0, getHeight());
+    float widthScale = (float)getWidth() / (analysisSize/2);
+    float heightScale = (float)getHeight() / (N/2);
     
     for (auto i = 0; i < analysisSize; i++)
     {
-        for(auto j = 0; j < N; j++)
+        for(auto j = N / 2; j > 0; j--)
         {
             float alpha = (float)analyzer.getAmplitudes()[i][j];
             g.setColour(juce::Colour(juce::Colours::black.withAlpha(alpha)));
             
             g.fillRect(widthScale * i ,
-                       -heightScale * j,
+                       heightScale * j,
                        widthScale,
                        heightScale);
         }
     }
+}
+
+void AnalysisWindowComponent::drawWaveletSpectogram(juce::Graphics &g)
+{
+
 }
 
 void AnalysisWindowComponent::drawSpectralFlux(juce::Graphics &g)

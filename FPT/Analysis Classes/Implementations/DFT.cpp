@@ -21,7 +21,7 @@ DFT::~DFT()
 void DFT::init(unsigned int N, WindowType t)
 {
     _N = N;
-    _window = new double[N]();
+    _window = new float[N]();
     createWindow(t);
     _DFTBuffer.resize(_N);
     _twiddleFactors.resize(_N);
@@ -48,19 +48,19 @@ void DFT::calculateTwiddleFactors()
     {
         for (auto n = 0; n < _N; n++)
         {
-            _twiddleFactors[k][n] = std::complex<double>(cos(2*M_PI/_N * k * n), -sin(2*M_PI/_N * k * n));
-            _inverseTwiddleFactors[k][n] = std::complex<double>(cos(2*M_PI/_N * k * n), sin(2*M_PI/_N * k * n));
+            _twiddleFactors[k][n] = std::complex<float>(cos(2*M_PI/_N * k * n), -sin(2*M_PI/_N * k * n));
+            _inverseTwiddleFactors[k][n] = std::complex<float>(cos(2*M_PI/_N * k * n), sin(2*M_PI/_N * k * n));
         }
     }
 }
 
-void DFT::calculateDFT(double *input)
+void DFT::calculateDFT(float *input)
 {
     for (auto n = 0; n < _N; n++)
     {
         _DFTBuffer[n].imag(0.0);
         _DFTBuffer[n].real(input[n] * _window[n]);
-        _DFTResult[n] = std::complex<double>(0,0);
+        _DFTResult[n] = std::complex<float>(0,0);
     }
     
     for (auto k = 0; k < _N; k++)
@@ -72,13 +72,13 @@ void DFT::calculateDFT(double *input)
     }
 }
 
-void DFT::calculateIDFT(double *input)
+void DFT::calculateIDFT(float *input)
 {
     for (auto k = 0; k < _N; k++)
     {
         for (auto n = 0; n < _N; n++)
         {
-            input[n] += (1.0/_N) * std::complex<double>(_DFTResult[k] * _inverseTwiddleFactors[k][n]).real();
+            input[n] += (1.0/_N) * std::complex<float>(_DFTResult[k] * _inverseTwiddleFactors[k][n]).real();
         }
     }
 }

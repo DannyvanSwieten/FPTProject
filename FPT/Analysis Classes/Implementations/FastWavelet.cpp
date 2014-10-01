@@ -13,7 +13,7 @@ FastWavelet::FastWavelet()
     
 }
 
-void FastWavelet::process(double* input ,unsigned int N, int direction)
+void FastWavelet::process(float* input ,unsigned int N, int direction)
 {
     if(direction)
         forward(input, N);
@@ -21,7 +21,7 @@ void FastWavelet::process(double* input ,unsigned int N, int direction)
         backward(input, N);
 }
 
-void FastWavelet::forward(double *input, unsigned int N)
+void FastWavelet::forward(float *input, unsigned int N)
 {
     float a;
     float c;
@@ -52,7 +52,7 @@ void FastWavelet::forward(double *input, unsigned int N)
         i *= 2;
         j *= 2;
     }
-    std::vector<double> result;
+    std::vector<float> result;
     for(auto sample = 0; sample < N; sample++)
     {
         result.emplace_back(input[sample]);
@@ -60,7 +60,7 @@ void FastWavelet::forward(double *input, unsigned int N)
     _result.emplace_back(result);
 }
 
-void FastWavelet::backward(double *input, unsigned int N)
+void FastWavelet::backward(float *input, unsigned int N)
 {
     float a0;
     float a1;

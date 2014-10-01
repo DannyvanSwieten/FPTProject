@@ -19,7 +19,7 @@ enum WindowType
     BLACKMAN
 };
 
-static inline void createWindow(WindowType t, double* output, unsigned int N)
+static inline void createWindow(WindowType t, float* output, unsigned int N)
 {
     switch (t) {
         case HANNING:
@@ -34,11 +34,11 @@ static inline void createWindow(WindowType t, double* output, unsigned int N)
     }
 }
 
-static inline double phaseWrap(double x, double d)
+static inline float phaseWrap(float x, float d)
 {
     // Optimize this ###
-    double d2 = 2*d;
-    double y = fmod(x, d2);
+    float d2 = 2*d;
+    float y = fmod(x, d2);
     
     return (y>d) ? (y-d2) : ((y<-d) ? (y+d2) : (y));
 }

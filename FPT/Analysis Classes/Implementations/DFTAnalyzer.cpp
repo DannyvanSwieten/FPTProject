@@ -19,10 +19,10 @@ DFTAnalyzer::~DFTAnalyzer()
     
 }
 
-void DFTAnalyzer::readAndAnalyse(double *input, long numberOfSamples)
+void DFTAnalyzer::readAndAnalyse(const float *input, long numberOfSamples)
 {
     unsigned long position = 0;
-    double buffer[getWindowSize()];
+    float buffer[getWindowSize()];
     unsigned int windowSize = getWindowSize();
     unsigned int hopSize = getHopsise();
     
@@ -49,13 +49,13 @@ void DFTAnalyzer::calculateAmplitudes()
 {
     for(auto i = 0; i < _analysisResult.size(); i++)
     {
-        std::vector<double> amplitude;
+        std::vector<float> amplitude;
         for(auto n = 0; n < dft.getSize();n++)
         {
             amplitude.emplace_back( std::abs(_analysisResult[i][n])/((float)dft.getSize()/2));
         }
         
-        double max = 0;
+        float max = 0;
         for (auto sample = 0;sample < dft.getSize(); sample++)
         {
             max = std::max(max, amplitude[sample]);
@@ -74,7 +74,7 @@ void DFTAnalyzer::calculatePhases()
 {
     for(auto i = 0; i < _analysisResult.size(); i++)
     {
-        std::vector<double> phase;
+        std::vector<float> phase;
         for(auto n = 0; n < dft.getSize();n++)
         {
             phase.emplace_back(std::arg(_analysisResult[i][n]));
@@ -98,10 +98,10 @@ void DFTAnalyzer::calculateInstantFrequencies()
 {
     for(auto i = 1; i < _phases.size(); i++)
     {
-        std::vector<double> freq;
+        std::vector<float> freq;
         for(auto j = 0; j < dft.getSize(); j++)
         {
-            double wrappedPhaseDetermination = phaseWrap((_phases[i][j] - _phases[i-1][j]) - (getHopsise() * (_freqPerBin) * j), M_PI);
+            float wrappedPhaseDetermination = phaseWrap((_phases[i][j] - _phases[i-1][j]) - (getHopsise() * (_freqPerBin) * j), M_PI);
             freq.emplace_back((_freqPerBin * j) + (wrappedPhaseDetermination/getHopsise()));
         }
         _trueFrequencies.emplace_back(freq);
@@ -127,7 +127,7 @@ void DFTAnalyzer::calculateSpectralFlux()
         _spectralFlux.emplace_back(difference2 - difference1);
     }
     
-    double max = 0;
+    float max = 0;
     for (auto sample = 0; sample < _spectralFlux.size(); sample++)
     {
         max = std::max(max, _spectralFlux[sample]);

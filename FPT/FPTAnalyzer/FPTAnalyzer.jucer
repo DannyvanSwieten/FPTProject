@@ -25,6 +25,10 @@
     </GROUP>
     <GROUP id="{2C2B341C-75B0-40D6-FC95-2F0E63D648DF}" name="Analysis">
       <GROUP id="{A8F7A76F-3B9E-765D-6A7A-8C5F00DF6585}" name="Wavelet">
+        <FILE id="t3NKBV" name="MultiResolutionTransform.h" compile="0" resource="0"
+              file="../Analysis Classes/Headers/MultiResolutionTransform.h"/>
+        <FILE id="AH214F" name="MultiResolutionTransform.cpp" compile="1" resource="0"
+              file="../Analysis Classes/Implementations/MultiResolutionTransform.cpp"/>
         <FILE id="yEAY5d" name="FastWavelet.cpp" compile="1" resource="0" file="../Analysis Classes/Implementations/FastWavelet.cpp"/>
         <FILE id="J6x1bu" name="FastWaveletAnalyzer.cpp" compile="1" resource="0"
               file="../Analysis Classes/Implementations/FastWaveletAnalyzer.cpp"/>

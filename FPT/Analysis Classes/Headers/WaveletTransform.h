@@ -18,18 +18,19 @@ class WaveletTransform
 {
 public:
     
-    WaveletTransform(int N);
-    void transform(double* input, int i);
+    WaveletTransform();
+    void init(int N);
+    void process(float* input, int i);
     
 private:
     void calculateTwiddleFactors();
-    std::vector<std::vector<double>> _result;
-    std::vector<std::vector<double>> _phase;
+    std::vector<std::vector<float>> _result;
+    std::vector<std::vector<float>> _phase;
     int _N = 0;
     std::vector<int> _periodSizes;
-    std::vector<std::complex<double>> _inputBuffer;
-    std::vector<std::vector<std::complex<double>>> _twiddleFactors;
-    double* _window = nullptr;
+    std::vector<std::complex<float>> _inputBuffer;
+    std::vector<std::vector<std::complex<float>>> _twiddleFactors;
+    float* _window = nullptr;
 };
 
 #endif /* defined(__DFT__WaveletTransform__) */

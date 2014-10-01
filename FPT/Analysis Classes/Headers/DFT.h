@@ -28,10 +28,10 @@ public:
     DFT();
     ~DFT();
     unsigned int getSize(){return _N;};
-    std::vector<std::complex<double>> getResult(){return _DFTResult;};
+    std::vector<std::complex<float>> getResult(){return _DFTResult;};
     void init(unsigned int N, WindowType t);
-    void calculateDFT(double* input);
-    void calculateIDFT(double* input);
+    void calculateDFT(float* input);
+    void calculateIDFT(float* input);
     void createWindow(WindowType t);
     
 private:
@@ -39,11 +39,11 @@ private:
     void calculateTwiddleFactors();
     
     unsigned int  _N;
-    std::vector<std::complex<double>> _DFTBuffer;
-    std::vector<std::complex<double>> _DFTResult;
-    std::vector<std::vector<std::complex<double>>> _twiddleFactors;
-    std::vector<std::vector<std::complex<double>>> _inverseTwiddleFactors;
-    double* _window = nullptr;
+    std::vector<std::complex<float>> _DFTBuffer;
+    std::vector<std::complex<float>> _DFTResult;
+    std::vector<std::vector<std::complex<float>>> _twiddleFactors;
+    std::vector<std::vector<std::complex<float>>> _inverseTwiddleFactors;
+    float* _window = nullptr;
 };
 
 #endif /* defined(__DFT__DFT__) */

@@ -19,7 +19,7 @@ public:
     
     SpectralAnalyzer(unsigned int N, unsigned int overlap);
     virtual ~SpectralAnalyzer() = 0;
-    virtual void readAndAnalyse(double* input, long numberOfSamples) = 0;
+    virtual void readAndAnalyse(const float* input, long numberOfSamples) = 0;
     virtual void calculatePhases() = 0;
     virtual void calculateAmplitudes() = 0;
     virtual void calculateInstantFrequencies() = 0;

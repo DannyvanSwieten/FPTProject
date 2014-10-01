@@ -10,13 +10,15 @@
 #define FPTAnalyzer_AnalysisWindowComponent_h
 
 #include "DFTAnalyzer.h"
+#include "WaveletTransform.h"
 #include "TransientProcessor.h"
+#include "APAudioFileManager2.h"
 
 class AnalysisWindowComponent: public Component
 {
 public:
     
-    AnalysisWindowComponent();
+    AnalysisWindowComponent(APAudioFileManager* fileManager);
     ~AnalysisWindowComponent();
     
     void resized()override;
@@ -26,11 +28,16 @@ public:
     void mouseDown(const MouseEvent& event)override;
     
 private:
+    
+    APAudioFileManager* _fileManager;
+    
     int _whatToDraw = 0;
     void draw(juce::Graphics& g);
     void drawDFTSpectogram(juce::Graphics& g);
     void drawTransientData(juce::Graphics& g);
     void drawSpectralFlux(juce::Graphics& g);
+    
+    void drawWaveletSpectogram(juce::Graphics& g);
     bool _dataWasRead = 0;
     Path _drawPath;
 };

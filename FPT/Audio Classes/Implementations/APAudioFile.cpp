@@ -8,6 +8,11 @@
 
 #include "APAudioFile.h"
 
+APAudioFile::~APAudioFile()
+{
+    
+}
+
 void APAudioFile::setAudio(AudioSampleBuffer buffer)
 {
     _audio = buffer;

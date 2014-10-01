@@ -21,13 +21,13 @@ public:
     void loadFile(File fileToLoad);
     APAudioFile getFile(String name);
     APAudioFile getFile(int index);
+    void clearManager();
     int getNumberOfFiles();
     
 private:
     
     std::vector<APAudioFile> _audioFiles;
     AudioFormatManager formatManager;
-    int _maxFiles = 1;
     int _filesLoaded = 0;
 };
 

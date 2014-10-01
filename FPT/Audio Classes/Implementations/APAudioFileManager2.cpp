@@ -20,30 +20,25 @@ APAudioFileManager::~APAudioFileManager()
 
 void APAudioFileManager::loadFile(File fileToLoad)
 {
-    if(_filesLoaded < _maxFiles)
-    {
-        AudioFormatReader* formatReader = formatManager.createReaderFor(fileToLoad);
-        
-        int numChannels = formatReader->numChannels;
-        int numSamples = formatReader->lengthInSamples;
-        
-        APAudioFile file;
-        AudioSampleBuffer buffer;
-        buffer.setSize(numChannels, numSamples);
-        
-        formatReader->read(&buffer, 0, numSamples, 0, true, true);
-        file.setAudio(buffer);
-        file.setFileName(fileToLoad.getFileName());
-        file.setNumChannels(numChannels);
-        file.setNumSamples(numSamples);
-        
-        _audioFiles.emplace_back(file);
-        _filesLoaded++;
-        
-        delete formatReader;
-    }
-    else
-        std::cout<<"You exceeded the maximum amount of files you specified. Please remove file from the audiomanager before trying to load new ones"<<std::endl;
+    AudioFormatReader* formatReader = formatManager.createReaderFor(fileToLoad);
+    
+    int numChannels = formatReader->numChannels;
+    int numSamples = formatReader->lengthInSamples;
+    
+    APAudioFile file;
+    AudioSampleBuffer buffer;
+    buffer.setSize(numChannels, numSamples);
+    
+    formatReader->read(&buffer, 0, numSamples, 0, true, true);
+    file.setAudio(buffer);
+    file.setFileName(fileToLoad.getFileName());
+    file.setNumChannels(numChannels);
+    file.setNumSamples(numSamples);
+    
+    _audioFiles.emplace_back(file);
+    _filesLoaded++;
+    
+    delete formatReader;
 }
 
 APAudioFile APAudioFileManager::getFile(juce::String name)
@@ -68,5 +63,8 @@ int APAudioFileManager::getNumberOfFiles()
     return _filesLoaded;
 }
 
-
+void APAudioFileManager::clearManager()
+{
+    _audioFiles.clear();
+}
 

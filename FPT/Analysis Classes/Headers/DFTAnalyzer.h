@@ -19,25 +19,25 @@ public:
     DFTAnalyzer(unsigned int N, unsigned int overlap, WindowType t);
     ~DFTAnalyzer();
     
-    void readAndAnalyse(double* input, long numberOfSamples) override;
+    void readAndAnalyse(const float* input, long numberOfSamples) override;
     void calculateAmplitudes()override;
     void calculatePhases()override;
     void calculateInstantFrequencies()override;
     void calculateSpectralFlux();
-    std::vector<std::vector<double>> getAmplitudes(){return _amplitudes;};
-    std::vector<std::vector<double>> getPhases(){return _phases;};
-    std::vector<std::vector<double>> getFrequenies(){return _trueFrequencies;};
-    std::vector<double> getSpectralFlux(){return _spectralFlux;};
+    std::vector<std::vector<float>> getAmplitudes(){return _amplitudes;};
+    std::vector<std::vector<float>> getPhases(){return _phases;};
+    std::vector<std::vector<float>> getFrequenies(){return _trueFrequencies;};
+    std::vector<float> getSpectralFlux(){return _spectralFlux;};
 private:
     
     class DFT dft;
-    double _freqPerBin = 0;
-    std::vector<std::complex<double>> _buffer;
-    std::vector<std::vector<std::complex<double>>> _analysisResult;
-    std::vector<std::vector<double>> _phases;
-    std::vector<std::vector<double>> _amplitudes;
-    std::vector<std::vector<double>> _trueFrequencies;
-    std::vector<double> _spectralFlux;
+    float _freqPerBin = 0;
+    std::vector<std::complex<float>> _buffer;
+    std::vector<std::vector<std::complex<float>>> _analysisResult;
+    std::vector<std::vector<float>> _phases;
+    std::vector<std::vector<float>> _amplitudes;
+    std::vector<std::vector<float>> _trueFrequencies;
+    std::vector<float> _spectralFlux;
 };
 
 #endif /* defined(__DFT__DFTAnalyzer__) */

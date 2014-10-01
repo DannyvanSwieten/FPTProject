@@ -28,13 +28,13 @@ public:
 
     void paint (Graphics&);
     void resized();
-    double* getData(){return _input;};
     bool _dataWasCalculated = 0;
 
 private:
     
     ScopedPointer<WaveFormComponent> _drawWindow1;
     ScopedPointer<AnalysisWindowComponent> _drawWindow2;
+    APAudioFileManager* _fileManager;
     
     double* _input = nullptr;
     

@@ -9,14 +9,14 @@
 #include "WaveFormComponent.h"
 #include "MainComponent.h"
 
-WaveFormComponent::WaveFormComponent()
+WaveFormComponent::WaveFormComponent(APAudioFileManager* manager)
 {
-    
+    _fileManager = manager;
 }
 
 WaveFormComponent::~WaveFormComponent()
 {
-    
+    _fileManager = nullptr;
 }
 
 void WaveFormComponent::paint(Graphics& g)
@@ -26,16 +26,16 @@ void WaveFormComponent::paint(Graphics& g)
     Path drawPath;
     g.setOrigin(0, getHeight()/2);
     
-    if(_fileManager.getNumberOfFiles())
+    if(_fileManager->getNumberOfFiles())
     {
-        APAudioFile audioFile = _fileManager.getFile(0);
+        APAudioFile audioFile = _fileManager->getFile(0);
         
         int step = audioFile.getNumSamples()/getWidth();
         int count = 0;
         
         for(auto i = 0; i < getWidth(); i++)
         {
-            drawPath.lineTo(i, audioFile.getAudioChannel(0)[count] * getHeight());
+            drawPath.lineTo(i, -audioFile.getAudioChannel(0)[count] * getHeight());
             count+= step;
         }
         g.strokePath(drawPath, PathStrokeType(1.0));
@@ -59,13 +59,14 @@ void WaveFormComponent::mouseDown(const juce::MouseEvent &event)
         
         if (menu.show())
         {
+            _fileManager->clearManager();
             FileChooser chooser("Please select the file you'd like to load",
                                 File::getSpecialLocation(File::userHomeDirectory),
                                 "*.wav; *.aiff",
                                 true);
             
             if(chooser.browseForFileToOpen())
-                _fileManager.loadFile(chooser.getResult());
+                _fileManager->loadFile(chooser.getResult());
         }
     }
     repaint();

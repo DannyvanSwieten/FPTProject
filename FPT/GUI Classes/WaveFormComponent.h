@@ -17,7 +17,7 @@ class WaveFormComponent: public Component
 {
 public:
     
-    WaveFormComponent();
+    WaveFormComponent(APAudioFileManager* manager);
     ~WaveFormComponent();
     
     void resized()override;
@@ -27,7 +27,7 @@ public:
     
 private:
     
-    APAudioFileManager _fileManager;
+   APAudioFileManager* _fileManager;
 };
 
 

@@ -15,6 +15,7 @@ class APAudioFile
 {
 public:
     
+    ~APAudioFile();
     void setAudio(AudioSampleBuffer buffer);
     void setNumChannels(int channels);
     void setNumSamples(long int samples);
