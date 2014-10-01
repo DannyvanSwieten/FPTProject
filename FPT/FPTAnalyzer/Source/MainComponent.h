@@ -35,6 +35,7 @@ private:
     ScopedPointer<WaveFormComponent> _drawWindow1;
     ScopedPointer<AnalysisWindowComponent> _drawWindow2;
     APAudioFileManager* _fileManager;
+    ScopedPointer<Viewport> _viewPort;
     
     double* _input = nullptr;
     

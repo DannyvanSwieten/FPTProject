@@ -22,7 +22,11 @@ MainContentComponent::MainContentComponent()
     _drawWindow1->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
     _drawWindow2->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
     
-    addAndMakeVisible(_drawWindow1);
+    _viewPort = new Viewport();
+    _viewPort->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
+    _viewPort->setViewedComponent(_drawWindow1);
+    
+    addAndMakeVisible(_viewPort);
     addAndMakeVisible(_drawWindow2);
 }
 
