@@ -29,10 +29,14 @@ void WaveFormComponent::paint(Graphics& g)
     if(_fileManager.getNumberOfFiles())
     {
         APAudioFile audioFile = _fileManager.getFile(0);
-        float widthScale = (float)getWidth() / (float)audioFile.getNumSamples();
+        
+        int step = audioFile.getNumSamples()/getWidth();
+        int count = 0;
+        
         for(auto i = 0; i < getWidth(); i++)
         {
-            drawPath.lineTo(i, audioFile.getAudioChannel(0)[i] * getHeight());
+            drawPath.lineTo(i, audioFile.getAudioChannel(0)[count] * getHeight());
+            count+= step;
         }
         g.strokePath(drawPath, PathStrokeType(1.0));
     }
