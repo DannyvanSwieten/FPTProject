@@ -10,6 +10,7 @@
 #define DFT_Utility_h
 
 #include <math.h>
+#include <algorithm>
 
 enum WindowType
 {
@@ -40,6 +41,19 @@ static inline double phaseWrap(double x, double d)
     double y = fmod(x, d2);
     
     return (y>d) ? (y-d2) : ((y<-d) ? (y+d2) : (y));
+}
+
+static inline void normalize(float* input, int size)
+{
+    float max = 0.0;
+    float norm = 0.0;
+    
+    for(auto i = 0; i < size; i++)
+        max = std::max(max, input[i]);
+    
+    norm = 1.0 / max;
+    for(auto i = 0; i < size; i++)
+        input[i] *= norm;
 }
 
 #endif
