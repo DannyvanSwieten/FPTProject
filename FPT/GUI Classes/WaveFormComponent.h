@@ -11,6 +11,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+#include "APAudioFileManager2.h"
+
 class WaveFormComponent: public Component
 {
 public:
@@ -25,7 +27,7 @@ public:
     
 private:
     
-    
+    APAudioFileManager _fileManager;
 };
 
 

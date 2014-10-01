@@ -24,6 +24,7 @@ public:
     void getDrawData();
     void mouseUp (const MouseEvent& event)override;
     void mouseDown(const MouseEvent& event)override;
+    
 private:
     int _whatToDraw = 0;
     void draw(juce::Graphics& g);

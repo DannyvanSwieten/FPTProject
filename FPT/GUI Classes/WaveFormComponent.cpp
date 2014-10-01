@@ -7,6 +7,7 @@
 //
 
 #include "WaveFormComponent.h"
+#include "MainComponent.h"
 
 WaveFormComponent::WaveFormComponent()
 {
@@ -21,6 +22,20 @@ WaveFormComponent::~WaveFormComponent()
 void WaveFormComponent::paint(Graphics& g)
 {
     g.fillAll(Colour(Colours::white));
+    
+    Path drawPath;
+    g.setOrigin(0, getHeight()/2);
+    
+    if(_fileManager.getNumberOfFiles())
+    {
+        APAudioFile audioFile = _fileManager.getFile(0);
+        float widthScale = (float)getWidth() / (float)audioFile.getNumSamples();
+        for(auto i = 0; i < getWidth(); i++)
+        {
+            drawPath.lineTo(i, audioFile.getAudioChannel(0)[i] * getHeight());
+        }
+        g.strokePath(drawPath, PathStrokeType(1.0));
+    }
 }
 
 void WaveFormComponent::resized()
@@ -40,9 +55,16 @@ void WaveFormComponent::mouseDown(const juce::MouseEvent &event)
         
         if (menu.show())
         {
+            FileChooser chooser("Please select the file you'd like to load",
+                                File::getSpecialLocation(File::userHomeDirectory),
+                                "*.wav; *.aiff",
+                                true);
             
+            if(chooser.browseForFileToOpen())
+                _fileManager.loadFile(chooser.getResult());
         }
     }
+    repaint();
 }
 
 void WaveFormComponent::mouseUp(const juce::MouseEvent &event)

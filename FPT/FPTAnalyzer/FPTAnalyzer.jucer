@@ -5,6 +5,12 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="jj1uIz" name="FPTAnalyzer">
     <GROUP id="{19AF87D9-0D98-35BC-EBD9-B605FF60BC7D}" name="Utilities">
+      <FILE id="cVyw5L" name="APAudioFileManager2.cpp" compile="1" resource="0"
+            file="../Audio Classes/Implementations/APAudioFileManager2.cpp"/>
+      <FILE id="lCmalv" name="APAudioFileManager2.h" compile="0" resource="0"
+            file="../Audio Classes/Headers/APAudioFileManager2.h"/>
+      <FILE id="j4O7po" name="APAudioFile.cpp" compile="1" resource="0" file="../Audio Classes/Implementations/APAudioFile.cpp"/>
+      <FILE id="VAbbjp" name="APAudioFile.h" compile="0" resource="0" file="../Audio Classes/Headers/APAudioFile.h"/>
       <FILE id="ZhhsuO" name="Utility.h" compile="0" resource="0" file="../Analysis Classes/Implementations/Utility.h"/>
     </GROUP>
     <GROUP id="{4B0372E1-5969-6D84-018F-4E0495977EC5}" name="Processing">
