@@ -46,14 +46,13 @@ static inline float phaseWrap(float x, float d)
 static inline void normalize(float* input, int size)
 {
     float max = 0.0;
-    float norm = 0.0;
     
     for(auto i = 0; i < size; i++)
         max = std::max(max, input[i]);
     
-    norm = 1.0 / max;
     for(auto i = 0; i < size; i++)
-        input[i] *= norm;
+        if(input[i] != 0.0)
+            input[i] /= max;
 }
 
 #endif

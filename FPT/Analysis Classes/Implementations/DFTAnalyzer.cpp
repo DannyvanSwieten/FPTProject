@@ -55,16 +55,7 @@ void DFTAnalyzer::calculateAmplitudes()
             amplitude.emplace_back( std::abs(_analysisResult[i][n])/((float)dft.getSize()/2));
         }
         
-        float max = 0;
-        for (auto sample = 0;sample < dft.getSize(); sample++)
-        {
-            max = std::max(max, amplitude[sample]);
-        }
-        
-        for (auto sample = 0;sample < dft.getSize(); sample++)
-        {
-            if(amplitude[sample] != 0) amplitude[sample] /= max;
-        }
+        normalize(amplitude.data(), dft.getSize());
         
         _amplitudes.emplace_back(amplitude);
     }
@@ -127,16 +118,5 @@ void DFTAnalyzer::calculateSpectralFlux()
         _spectralFlux.emplace_back(difference2 - difference1);
     }
     
-    float max = 0;
-    for (auto sample = 0; sample < _spectralFlux.size(); sample++)
-    {
-        max = std::max(max, _spectralFlux[sample]);
-    }
-    
-    for (auto sample = 0;sample < dft.getSize(); sample++)
-    {
-        if(_spectralFlux[sample] != 0) _spectralFlux[sample] /= max;
-//        std::cout<<_spectralFlux[sample]<<std::endl;
-    }
-    
+    normalize(_spectralFlux.data(), dft.getSize());
 }
