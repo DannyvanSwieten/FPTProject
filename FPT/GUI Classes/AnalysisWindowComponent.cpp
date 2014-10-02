@@ -120,13 +120,14 @@ void AnalysisWindowComponent::drawDFTSpectogram(juce::Graphics& g)
     
     for (auto i = 0; i < analysisSize; i++)
     {
+        int counter = 0;
         for(auto j = N / 2; j > 0; j--)
         {
             float alpha = (float)analyzer.getAmplitudes()[i][j];
             g.setColour(juce::Colour(juce::Colours::black.withAlpha(alpha)));
             
             g.fillRect(widthScale * i ,
-                       heightScale * j,
+                       heightScale * counter++,
                        widthScale,
                        heightScale);
         }
