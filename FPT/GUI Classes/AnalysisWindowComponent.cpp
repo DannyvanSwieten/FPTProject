@@ -46,9 +46,12 @@ void AnalysisWindowComponent::mouseDown(const juce::MouseEvent &event)
         fastWavelet.addItem(8, "Spectral Flux");
         fastWavelet.addItem(9, "Phase Difference");
         
+        
         menu.addSubMenu("DFT", DFT);
         menu.addSubMenu("Wavelet", wavelet);
         menu.addSubMenu("Fast Lifting Wavelet", fastWavelet);
+        
+        menu.addItem(10, "Frequency");
         
         _whatToDraw = menu.show();
     }
@@ -72,7 +75,8 @@ void AnalysisWindowComponent::draw(Graphics& g)
             getDrawData();
             drawSpectralFlux(g);
             break;
-        case 3:
+        case 10:
+            drawFrequency(g);
             break;
         default:
             
@@ -97,6 +101,28 @@ void AnalysisWindowComponent::getDrawData()
         _drawPath.lineTo(i * widthScale, fabs(sample * heightScale));
     }
     repaint();
+}
+
+void AnalysisWindowComponent::drawFrequency(juce::Graphics &g)
+{
+    g.setColour(Colour(Colours::black));
+    FrequencyAnalyzer analyzer(256);
+    analyzer.readAndAnalyse(_fileManager->getFile(0).getAudioChannel(0), _fileManager->getFile(0).getNumSamples());
+    int analysisSize = _fileManager->getFile(0).getNumSamples();
+    int step = analysisSize / getWidth();
+    float heightScale = (float)getHeight() / 44100.0;
+    int count = 0;
+    
+    g.setOrigin(0, getHeight());
+    
+    for(auto j = 0; j < getWidth(); j++)
+    {
+        float frequency = analyzer.getResult()[count];
+        if (isnan(frequency) ||  frequency == -1) frequency = 0;
+        _drawPath.lineTo(j, frequency * -heightScale);
+        count+=step;
+    }
+    g.strokePath(_drawPath, PathStrokeType(1.0));
 }
 
 void AnalysisWindowComponent::drawTransientData(juce::Graphics& g)

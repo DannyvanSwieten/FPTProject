@@ -13,6 +13,7 @@
 #include "WaveletTransform.h"
 #include "TransientProcessor.h"
 #include "APAudioFileManager2.h"
+#include "FrequencyAnalyzer.h"
 
 class AnalysisWindowComponent: public Component
 {
@@ -36,6 +37,7 @@ private:
     void drawDFTSpectogram(juce::Graphics& g);
     void drawTransientData(juce::Graphics& g);
     void drawSpectralFlux(juce::Graphics& g);
+    void drawFrequency(juce::Graphics& g);
     
     void drawWaveletSpectogram(juce::Graphics& g);
     bool _dataWasRead = 0;

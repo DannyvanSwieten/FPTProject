@@ -7,6 +7,7 @@
 //
 
 #include "DFTAnalyzer.h"
+#include "YINAnalyzer.h"
 
 DFTAnalyzer::DFTAnalyzer(unsigned int N, unsigned int overlap, WindowType t): SpectralAnalyzer(N, overlap)
 {

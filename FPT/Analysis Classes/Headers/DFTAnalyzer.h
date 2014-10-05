@@ -11,6 +11,7 @@
 
 #include "SpectralAnalyzer.h"
 #include "DFT.h"
+#include <iostream>
 
 class DFTAnalyzer: public SpectralAnalyzer
 {
