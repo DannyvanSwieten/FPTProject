@@ -17,7 +17,7 @@ void YINAnalyzer::init(int N)
 {
     _N = N;
     _tau.resize(N/2);
-    _threshold = 0.11;
+    _threshold = 0.1;
 }
 
 YINAnalyzer::~YINAnalyzer()
@@ -25,28 +25,17 @@ YINAnalyzer::~YINAnalyzer()
     
 }
 
-void YINAnalyzer::squaredDifference(float *input)
-{
-    for (auto tau = 0; tau < _N/2; tau++)
-    {
-        float delta = 0;
-        _tau[tau] = 0;
-        for (auto i = 0; i < _N/2; i++)
-        {
-            delta = input[i] - input[i + tau];
-            _tau[tau] += delta * delta;
-        }
-    }
-}
-
 void YINAnalyzer::normalizedDifference()
 {
-    _tau[1];
+    _tau[0] = 1.0;
     float sum = 0;
     for (auto i = 1; i < _N/2; i++)
     {
         sum += _tau[i];
-        _tau[i] *= (float)i / sum;
+        if(sum != 0.0)
+            _tau[i] *= (float)i / sum;
+        else
+            _tau[i] *= (float)i;
     }
 }
 

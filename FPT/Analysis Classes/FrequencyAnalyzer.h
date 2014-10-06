@@ -18,6 +18,7 @@ public:
     void readAndAnalyse(const float* input, long int numberOfSamples);
     std::vector<float> getResult(){return _result;};
 private:
+    
     YINAnalyzer yin;
     int _N;
     std::vector<float> _result;

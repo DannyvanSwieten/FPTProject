@@ -11,6 +11,7 @@
 
 #include <vector>
 #include "Utility.h"
+#include <iostream>
 
 class YINAnalyzer
 {
@@ -23,7 +24,20 @@ public:
     float analyze(float* input);
 private:
     
-    void squaredDifference(float* input);
+    inline void squaredDifference(float *input)
+    {
+        float delta = 0;
+        for (auto tau = 0; tau < _N/2; tau++)
+        {
+            _tau[tau] = 0;
+            for (auto i = 0; i < _N/2; i++)
+            {
+                delta = input[i] - input[i + tau];
+                _tau[tau] += delta * delta;
+            }
+        }
+    }
+
     void normalizedDifference();
     int absoluteThreshold();
     
@@ -31,7 +45,7 @@ private:
     std::vector<float> _tau;
     float _threshold = 0;
     float _probability = 0;
-    float bla[1024];
+    float* _window = nullptr;
 };
 
 #endif /* defined(__FPTAnalyzer__YINAnalyser__) */

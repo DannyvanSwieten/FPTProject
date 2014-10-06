@@ -66,13 +66,14 @@ void AnalysisWindowComponent::mouseUp(const juce::MouseEvent &event)
 
 void AnalysisWindowComponent::draw(Graphics& g)
 {
+    
+    
     switch (_whatToDraw)
     {
         case 1:
             drawDFTSpectogram(g);
             break;
         case 2:
-            getDrawData();
             drawSpectralFlux(g);
             break;
         case 10:
@@ -86,42 +87,38 @@ void AnalysisWindowComponent::draw(Graphics& g)
 
 void AnalysisWindowComponent::getDrawData()
 {
-    _drawPath.clear();
-    DFTAnalyzer analyzer(1024, 1, HANNING);
-//    analyzer.readAndAnalyse(mainComponent->getData(), 1024 * 8);
-    analyzer.calculateAmplitudes();
-    analyzer.calculateSpectralFlux();
-    int analysisSize = analyzer.getSpectralFlux().size();
-    float widthScale = (float)getWidth() / analysisSize;
-    float heightScale = (float)getHeight() / 144;
     
-    for(auto i = 0; i < analysisSize/2; i++)
-    {
-        float sample = analyzer.getSpectralFlux()[i];
-        _drawPath.lineTo(i * widthScale, fabs(sample * heightScale));
-    }
-    repaint();
+}
+
+void AnalysisWindowComponent::drawScale(Graphics& g)
+{
+
 }
 
 void AnalysisWindowComponent::drawFrequency(juce::Graphics &g)
 {
     g.setColour(Colour(Colours::black));
-    FrequencyAnalyzer analyzer(256);
-    analyzer.readAndAnalyse(_fileManager->getFile(0).getAudioChannel(0), _fileManager->getFile(0).getNumSamples());
-    int analysisSize = _fileManager->getFile(0).getNumSamples();
-    int step = analysisSize / getWidth();
-    float heightScale = (float)getHeight() / 44100.0;
-    int count = 0;
-    
-    g.setOrigin(0, getHeight());
-    
-    for(auto j = 0; j < getWidth(); j++)
+    FrequencyAnalyzer analyzer(1024);
+    if(!_drawPathWasSet)
     {
-        float frequency = analyzer.getResult()[count];
-        if (isnan(frequency) ||  frequency == -1) frequency = 0;
-        _drawPath.lineTo(j, frequency * -heightScale);
-        count+=step;
+        analyzer.readAndAnalyse(_fileManager->getFile(0).getAudioChannel(0), _fileManager->getFile(0).getNumSamples());
+
+        int analysisSize = _fileManager->getFile(0).getNumSamples();
+        int step = analysisSize / getWidth();
+        float heightScale = (float)getHeight() / 800.0;
+        int count = 0;
+        
+        g.setOrigin(0, getHeight());
+        
+        for(auto j = 0; j < getWidth(); j++)
+        {
+            float frequency = analyzer.getResult()[count];
+            if (isnan(frequency) ||  frequency == -1) frequency = 0;
+            _drawPath.lineTo(j, frequency * -heightScale);
+            count+=step;
+        }
     }
+    
     g.strokePath(_drawPath, PathStrokeType(1.0));
 }
 
@@ -132,7 +129,7 @@ void AnalysisWindowComponent::drawTransientData(juce::Graphics& g)
 
 void AnalysisWindowComponent::drawDFTSpectogram(juce::Graphics& g)
 {
-    DFTAnalyzer analyzer(2048, 1, HANNING);
+    DFTAnalyzer analyzer(1024, 1, HANNING);
     
     analyzer.readAndAnalyse(_fileManager->getFile(0).getAudioChannel(0), _fileManager->getFile(0).getNumSamples());
     analyzer.calculateAmplitudes();
