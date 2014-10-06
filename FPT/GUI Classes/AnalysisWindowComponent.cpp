@@ -64,6 +64,12 @@ void AnalysisWindowComponent::mouseUp(const juce::MouseEvent &event)
     
 }
 
+//void AnalysisWindowComponent::mouseMove(const juce::MouseEvent &event)
+//{
+//    float y = (800.0 / getHeight());
+//    std::cout<<y * event.position.y<<std::endl;
+//}
+
 void AnalysisWindowComponent::draw(Graphics& g)
 {
     
@@ -97,13 +103,14 @@ void AnalysisWindowComponent::drawScale(Graphics& g)
 
 void AnalysisWindowComponent::drawFrequency(juce::Graphics &g)
 {
+    _drawPath.clear();
     g.setColour(Colour(Colours::black));
     FrequencyAnalyzer analyzer(1024);
     if(!_drawPathWasSet)
     {
         analyzer.readAndAnalyse(_fileManager->getFile(0).getAudioChannel(0), _fileManager->getFile(0).getNumSamples());
 
-        int analysisSize = _fileManager->getFile(0).getNumSamples();
+        int analysisSize = _fileManager->getFile(0).getNumSamples() / 10;
         int step = analysisSize / getWidth();
         float heightScale = (float)getHeight() / 800.0;
         int count = 0;
@@ -113,7 +120,7 @@ void AnalysisWindowComponent::drawFrequency(juce::Graphics &g)
         for(auto j = 0; j < getWidth(); j++)
         {
             float frequency = analyzer.getResult()[count];
-            if (isnan(frequency) ||  frequency == -1) frequency = 0;
+            if (isnan(frequency) ||  frequency == -1 || frequency > 800) frequency = 0;
             _drawPath.lineTo(j, frequency * -heightScale);
             count+=step;
         }

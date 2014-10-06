@@ -14,6 +14,7 @@
 #include "TransientProcessor.h"
 #include "APAudioFileManager2.h"
 #include "FrequencyAnalyzer.h"
+#include <iostream>
 
 class AnalysisWindowComponent: public Component
 {
@@ -27,6 +28,7 @@ public:
     void getDrawData();
     void mouseUp (const MouseEvent& event)override;
     void mouseDown(const MouseEvent& event)override;
+//    void mouseMove(const MouseEvent& event)override;
     
 private:
     
