@@ -4,143 +4,104 @@
               bundleIdentifier="com.yourcompany.FPTAnalyzer" includeBinaryInAppConfig="1"
               jucerVersion="3.1.0">
   <MAINGROUP id="jj1uIz" name="FPTAnalyzer">
-    <GROUP id="{10396A57-F443-507F-E3E3-5289D94DE747}" name="APAudioFramework">
-      <GROUP id="{5A6A2170-44DB-C888-90D6-DCA7ADFEC43A}" name="Analysis Classes">
-        <GROUP id="{DB0633B1-D5DC-59F7-90A4-D62CC388AA87}" name="Headers">
-          <FILE id="rGCRsh" name="DFT.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/DFT.h"/>
-          <FILE id="RbY1BO" name="DFTAnalyzer.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/DFTAnalyzer.h"/>
-          <FILE id="JMblTC" name="FastWavelet.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/FastWavelet.h"/>
-          <FILE id="QRoJ6H" name="FastWaveletAnalyzer.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/FastWaveletAnalyzer.h"/>
-          <FILE id="Ou93HI" name="FrequencyAnalyzer.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/FrequencyAnalyzer.h"/>
-          <FILE id="QiCY6o" name="MultiResolutionTransform.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/MultiResolutionTransform.h"/>
-          <FILE id="OAy90f" name="SpectralAnalyzer.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/SpectralAnalyzer.h"/>
-          <FILE id="uGCSfk" name="SpectralProcessor.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/SpectralProcessor.h"/>
-          <FILE id="VHC5gR" name="TransientProcessor.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/TransientProcessor.h"/>
-          <FILE id="YfDSq3" name="WaveletTransform.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Headers/WaveletTransform.h"/>
-          <FILE id="tRu6jY" name="YINAnalyzer.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/YINAnalyzer.h"/>
-        </GROUP>
-        <GROUP id="{22166A26-898B-E3EE-C380-AECF1357B7A2}" name="Implementations">
-          <FILE id="rn8ouA" name="DFT.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/DFT.cpp"/>
-          <FILE id="ycMvg7" name="DFTAnalyzer.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/DFTAnalyzer.cpp"/>
-          <FILE id="J2eIPF" name="FastWavelet.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/FastWavelet.cpp"/>
-          <FILE id="FSUs9J" name="FastWaveletAnalyzer.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/FastWaveletAnalyzer.cpp"/>
-          <FILE id="i8Qelj" name="FrequencyAnalyzer.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/FrequencyAnalyzer.cpp"/>
-          <FILE id="juXRTO" name="MultiResolutionTransform.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/MultiResolutionTransform.cpp"/>
-          <FILE id="oGazNd" name="SpectralAnalyzer.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/SpectralAnalyzer.cpp"/>
-          <FILE id="RuuBhz" name="SpectralProcessor.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/SpectralProcessor.cpp"/>
-          <FILE id="LGIxPo" name="TransientProcessor.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/TransientProcessor.cpp"/>
-          <FILE id="Mfave7" name="Utility.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/Utility.h"/>
-          <FILE id="xfctHO" name="WaveletTransform.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Analysis Classes/Implementations/WaveletTransform.cpp"/>
-          <FILE id="k8kaRf" name="YINAnalyzer.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/YINAnalyzer.cpp"/>
-        </GROUP>
+    <GROUP id="{ED8E2B98-865B-DDDE-84FE-090E94AD8707}" name="Analysis Classes">
+      <GROUP id="{7A3851F0-2C7C-9DE7-AA27-36E914141A76}" name="Headers">
+        <FILE id="Wc9bBQ" name="DFT.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/DFT.h"/>
+        <FILE id="lIi0LA" name="DFTAnalyzer.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/DFTAnalyzer.h"/>
+        <FILE id="fSIKdC" name="FastWavelet.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/FastWavelet.h"/>
+        <FILE id="yMhPQf" name="FastWaveletAnalyzer.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/FastWaveletAnalyzer.h"/>
+        <FILE id="omAvkz" name="FrequencyAnalyzer.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/FrequencyAnalyzer.h"/>
+        <FILE id="oFysYs" name="MultiResolutionTransform.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/MultiResolutionTransform.h"/>
+        <FILE id="lRxKV4" name="SpectralAnalyzer.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/SpectralAnalyzer.h"/>
+        <FILE id="jS8SFk" name="SpectralProcessor.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/SpectralProcessor.h"/>
+        <FILE id="bmZxV2" name="TransientProcessor.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/TransientProcessor.h"/>
+        <FILE id="CY1Itw" name="WaveletTransform.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Headers/WaveletTransform.h"/>
+        <FILE id="lKaI7p" name="YINAnalyzer.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Headers/YINAnalyzer.h"/>
       </GROUP>
-      <GROUP id="{E260DF47-0F46-3C88-AAAA-BB146695B353}" name="Audio Classes">
-        <GROUP id="{8D369C46-0E85-4D86-D5D7-D36D0CC78624}" name="Headers">
-          <FILE id="u3nynF" name="APAudioDecimatorModule.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioDecimatorModule.h"/>
-          <FILE id="LamV2f" name="APAudioEnvelope.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioEnvelope.h"/>
-          <FILE id="NeBR7T" name="APAudioFile.h" compile="0" resource="0" file="../../../APAudioFramework/Audio Classes/Headers/APAudioFile.h"/>
-          <FILE id="fZICCo" name="APAudioFileManager2.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioFileManager2.h"/>
-          <FILE id="V4ZFc3" name="APAudioModule.h" compile="0" resource="0" file="../../../APAudioFramework/Audio Classes/Headers/APAudioModule.h"/>
-          <FILE id="sSAGRc" name="APAudioParameter.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioParameter.h"/>
-          <FILE id="TEOzXv" name="APAudioSamplerVoice.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioSamplerVoice.h"/>
-          <FILE id="sAhKkk" name="APAudioSampleSound.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioSampleSound.h"/>
-          <FILE id="FMi7tW" name="APAudioSoundDescription.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioSoundDescription.h"/>
-          <FILE id="STShGw" name="APAudioSourceManager.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioSourceManager.h"/>
-          <FILE id="GpTYR4" name="APAudioVoice.h" compile="0" resource="0" file="../../../APAudioFramework/Audio Classes/Headers/APAudioVoice.h"/>
-          <FILE id="TRFl89" name="APAudioVoiceManager.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Headers/APAudioVoiceManager.h"/>
-        </GROUP>
-        <GROUP id="{2B09A269-93EC-FF73-44A2-8036391C70A5}" name="Implementations">
-          <FILE id="mGApQq" name="APAudioDecimatorModule.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioDecimatorModule.cpp"/>
-          <FILE id="sS6xZ8" name="APAudioEnvelope.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioEnvelope.cpp"/>
-          <FILE id="wPmqJI" name="APAudioFile.cpp" compile="1" resource="0" file="../../../APAudioFramework/Audio Classes/Implementations/APAudioFile.cpp"/>
-          <FILE id="pZ9gA4" name="APAudioFileManager2.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioFileManager2.cpp"/>
-          <FILE id="QYDHn1" name="APAudioModule.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioModule.cpp"/>
-          <FILE id="OoEDfP" name="APAudioParameter.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioParameter.cpp"/>
-          <FILE id="RIca6r" name="APAudioSamplerVoice.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSamplerVoice.cpp"/>
-          <FILE id="Sd31Is" name="APAudioSampleSound.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSampleSound.cpp"/>
-          <FILE id="KCqTht" name="APAudioSoundDescription.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSoundDescription.cpp"/>
-          <FILE id="qM06op" name="APAudioSourceManager.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSourceManager.cpp"/>
-          <FILE id="oQt9Hh" name="APAudioVoice.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioVoice.cpp"/>
-          <FILE id="gzTanp" name="APAudioVoiceManager.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Audio Classes/Implementations/APAudioVoiceManager.cpp"/>
-        </GROUP>
+      <GROUP id="{D4CDB585-09D8-88CD-6C77-20FF70E9A88C}" name="Implementations">
+        <FILE id="fMIHhZ" name="DFT.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/DFT.cpp"/>
+        <FILE id="Xceh5E" name="DFTAnalyzer.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/DFTAnalyzer.cpp"/>
+        <FILE id="UToe12" name="FastWavelet.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/FastWavelet.cpp"/>
+        <FILE id="L7K1hF" name="FastWaveletAnalyzer.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/FastWaveletAnalyzer.cpp"/>
+        <FILE id="jG2FKa" name="FrequencyAnalyzer.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/FrequencyAnalyzer.cpp"/>
+        <FILE id="LwAsZj" name="MultiResolutionTransform.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/MultiResolutionTransform.cpp"/>
+        <FILE id="un1Nlk" name="SpectralAnalyzer.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/SpectralAnalyzer.cpp"/>
+        <FILE id="z03izF" name="SpectralProcessor.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/SpectralProcessor.cpp"/>
+        <FILE id="XiQgWR" name="TransientProcessor.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/TransientProcessor.cpp"/>
+        <FILE id="h8TrIn" name="Utility.h" compile="0" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/Utility.h"/>
+        <FILE id="lICDqu" name="WaveletTransform.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Analysis Classes/Implementations/WaveletTransform.cpp"/>
+        <FILE id="DuuUMw" name="YINAnalyzer.cpp" compile="1" resource="0" file="../../../APAudioFramework/Analysis Classes/Implementations/YINAnalyzer.cpp"/>
       </GROUP>
-      <GROUP id="{84D9FFA3-A0CF-077E-E513-527699F6F5E3}" name="GUI Classes">
-        <GROUP id="{0C9B5F1E-E7F3-9F7B-6E06-50F785CF3C63}" name="Headers">
-          <FILE id="sCc4EQ" name="AnalysisWindowComponent.h" compile="0" resource="0"
-                file="../../../APAudioFramework/GUI Classes/Headers/AnalysisWindowComponent.h"/>
-          <FILE id="fTBh0u" name="WaveFormComponent.h" compile="0" resource="0"
-                file="../../../APAudioFramework/GUI Classes/Headers/WaveFormComponent.h"/>
-        </GROUP>
-        <GROUP id="{0BD19B04-2DBF-D265-A52A-367120223877}" name="Implementations">
-          <FILE id="VqSPRn" name="AnalysisWindowComponent.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/GUI Classes/Implementations/AnalysisWindowComponent.cpp"/>
-          <FILE id="t28Gjh" name="WaveFormComponent.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/GUI Classes/Implementations/WaveFormComponent.cpp"/>
-        </GROUP>
+    </GROUP>
+    <GROUP id="{AE3C8593-ED16-9201-C369-21ECDAE991E1}" name="Audio Classes">
+      <GROUP id="{B20970A5-D35C-A2DF-5E8A-D51B0F80B6CD}" name="Headers">
+        <FILE id="RNf5qW" name="APAudioDecimatorModule.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioDecimatorModule.h"/>
+        <FILE id="ol9U7x" name="APAudioEnvelope.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioEnvelope.h"/>
+        <FILE id="YtBBUE" name="APAudioFile.h" compile="0" resource="0" file="../../../APAudioFramework/Audio Classes/Headers/APAudioFile.h"/>
+        <FILE id="pmmjnv" name="APAudioFileManager2.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioFileManager2.h"/>
+        <FILE id="Xu8Aqe" name="APAudioFilePlayer.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioFilePlayer.h"/>
+        <FILE id="DTeVdc" name="APAudioModule.h" compile="0" resource="0" file="../../../APAudioFramework/Audio Classes/Headers/APAudioModule.h"/>
+        <FILE id="HL0qPv" name="APAudioParameter.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioParameter.h"/>
+        <FILE id="QkE2yM" name="APAudioSampler.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioSampler.h"/>
+        <FILE id="xxTDYm" name="APAudioSamplerVoice.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioSamplerVoice.h"/>
+        <FILE id="yl4H49" name="APAudioSoundDescription.h" compile="0" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Headers/APAudioSoundDescription.h"/>
       </GROUP>
-      <GROUP id="{E3BE53A2-3BEC-2FDA-DEF3-40F477AF9D08}" name="Midi Classes">
-        <GROUP id="{A38FEF42-08A0-A52D-F2E4-AB90F35B3B26}" name="Headers">
-          <FILE id="plVsjB" name="APAMidiData.h" compile="0" resource="0" file="../../../APAudioFramework/Midi Classes/Headers/APAMidiData.h"/>
-          <FILE id="uCTRtz" name="APAMidiDatabase.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Midi Classes/Headers/APAMidiDatabase.h"/>
-          <FILE id="JP8yaY" name="APAMidiLoader.h" compile="0" resource="0" file="../../../APAudioFramework/Midi Classes/Headers/APAMidiLoader.h"/>
-        </GROUP>
-        <GROUP id="{2933708E-1859-5869-7489-67EF23A2AA06}" name="Implementations">
-          <FILE id="KgnGiM" name="APAMidiData.cpp" compile="1" resource="0" file="../../../APAudioFramework/Midi Classes/Implementations/APAMidiData.cpp"/>
-          <FILE id="XcPMmW" name="APAMidiDatabase.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Midi Classes/Implementations/APAMidiDatabase.cpp"/>
-          <FILE id="BS80Ei" name="APAMidiLoader.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Midi Classes/Implementations/APAMidiLoader.cpp"/>
-        </GROUP>
+      <GROUP id="{D74D384D-0F15-39F6-7283-1543466E0013}" name="Implementations">
+        <FILE id="yHfixL" name="APAudioDecimatorModule.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioDecimatorModule.cpp"/>
+        <FILE id="G4zmxS" name="APAudioEnvelope.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioEnvelope.cpp"/>
+        <FILE id="Ow6uaC" name="APAudioFile.cpp" compile="1" resource="0" file="../../../APAudioFramework/Audio Classes/Implementations/APAudioFile.cpp"/>
+        <FILE id="K6wMN1" name="APAudioFileManager2.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioFileManager2.cpp"/>
+        <FILE id="MsaBnR" name="APAudioFilePlayer.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioFilePlayer.cpp"/>
+        <FILE id="Wsxrei" name="APAudioModule.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioModule.cpp"/>
+        <FILE id="QFpn4R" name="APAudioParameter.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioParameter.cpp"/>
+        <FILE id="My8v4o" name="APAudioSampler.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSampler.cpp"/>
+        <FILE id="Y9mDuJ" name="APAudioSamplerVoice.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSamplerVoice.cpp"/>
+        <FILE id="CkoAMB" name="APAudioSoundDescription.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/Audio Classes/Implementations/APAudioSoundDescription.cpp"/>
       </GROUP>
-      <GROUP id="{7298D8B9-02B3-FE5B-8067-A8FBA3104B8D}" name="Sequencer Classes">
-        <GROUP id="{B691806F-E24B-21B3-96B7-E32D7B6DDBDB}" name="Headers">
-          <FILE id="aSheXt" name="APAEvent.h" compile="0" resource="0" file="../../../APAudioFramework/Sequencer Classes/Headers/APAEvent.h"/>
-          <FILE id="GI6GVL" name="APAEventHandler.h" compile="0" resource="0"
-                file="../../../APAudioFramework/Sequencer Classes/Headers/APAEventHandler.h"/>
-          <FILE id="tkY0cX" name="APAScheduler.h" compile="0" resource="0" file="../../../APAudioFramework/Sequencer Classes/Headers/APAScheduler.h"/>
-        </GROUP>
-        <GROUP id="{007F23F4-1671-9575-B352-59CEC92B85CB}" name="Implementations">
-          <FILE id="Ob5dat" name="APAEvent.cpp" compile="1" resource="0" file="../../../APAudioFramework/Sequencer Classes/Implementations/APAEvent.cpp"/>
-          <FILE id="UlsGSU" name="APAEventHandler.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Sequencer Classes/Implementations/APAEventHandler.cpp"/>
-          <FILE id="q895ug" name="APAScheduler.cpp" compile="1" resource="0"
-                file="../../../APAudioFramework/Sequencer Classes/Implementations/APAScheduler.cpp"/>
-        </GROUP>
+    </GROUP>
+    <GROUP id="{07A9E0E7-1501-8413-D92E-3E8CD8148C8F}" name="GUI Classes">
+      <GROUP id="{33035DA7-8CE7-91BF-6083-660AAC37D95C}" name="Headers">
+        <FILE id="ObtmpL" name="AnalysisWindowComponent.h" compile="0" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Headers/AnalysisWindowComponent.h"/>
+        <FILE id="QjVtXa" name="WaveFormComponent.h" compile="0" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Headers/WaveFormComponent.h"/>
+      </GROUP>
+      <GROUP id="{C9BC11D3-232E-FE68-AF67-C9BEA28AACB9}" name="Implementations">
+        <FILE id="i8jkcA" name="AnalysisWindowComponent.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Implementations/AnalysisWindowComponent.cpp"/>
+        <FILE id="FGHIkw" name="WaveFormComponent.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Implementations/WaveFormComponent.cpp"/>
       </GROUP>
     </GROUP>
     <GROUP id="{CB1D961E-6F0D-0946-A6B3-FA1B1F8BF215}" name="Main">
