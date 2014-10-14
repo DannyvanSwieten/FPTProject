@@ -14,16 +14,16 @@ MainContentComponent::MainContentComponent()
 {
     setSize (1200, 800);
     
-    _fileManager = new APAudioFileManager();
+    _fileManager = std::make_unique<APAudioFileManager>();
     
-    _drawWindow1 = new WaveFormComponent(_fileManager);
-    _drawWindow2 = new AnalysisWindowComponent(_fileManager);
+    _drawWindow1 = std::make_unique<WaveFormComponent>(_fileManager.get());
+    _drawWindow2 = std::make_unique<AnalysisWindowComponent>(_fileManager.get());
     
     _drawWindow1->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
     _drawWindow2->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
     
-    addAndMakeVisible(_drawWindow1);
-    addAndMakeVisible(_drawWindow2);
+    addAndMakeVisible(_drawWindow1.get());
+    addAndMakeVisible(_drawWindow2.get());
 }
 
 MainContentComponent::~MainContentComponent()

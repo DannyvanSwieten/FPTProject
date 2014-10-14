@@ -32,9 +32,9 @@ public:
 
 private:
     
-    ScopedPointer<WaveFormComponent> _drawWindow1;
-    ScopedPointer<AnalysisWindowComponent> _drawWindow2;
-    APAudioFileManager* _fileManager;
+    std::unique_ptr<WaveFormComponent> _drawWindow1;
+    std::unique_ptr<AnalysisWindowComponent> _drawWindow2;
+    std::unique_ptr<APAudioFileManager> _fileManager;
     
     double* _input = nullptr;
     

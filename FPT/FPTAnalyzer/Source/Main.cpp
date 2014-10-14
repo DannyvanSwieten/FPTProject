@@ -28,14 +28,12 @@ public:
     {
         // This method is where you should put your application's initialisation code..
 
-        mainWindow = new MainWindow();
+        mainWindow = std::make_unique<MainWindow>();
     }
 
     void shutdown()
     {
-        // Add your application's shutdown code here..
-
-        mainWindow = nullptr; // (deletes our window)
+        
     }
 
     //==============================================================================
@@ -91,7 +89,7 @@ public:
     };
 
 private:
-    ScopedPointer<MainWindow> mainWindow;
+    std::unique_ptr<MainWindow> mainWindow;
 };
 
 //==============================================================================
