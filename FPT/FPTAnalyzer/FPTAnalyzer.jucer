@@ -92,14 +92,21 @@
     </GROUP>
     <GROUP id="{07A9E0E7-1501-8413-D92E-3E8CD8148C8F}" name="GUI Classes">
       <GROUP id="{33035DA7-8CE7-91BF-6083-660AAC37D95C}" name="Headers">
-        <FILE id="ObtmpL" name="AnalysisWindowComponent.h" compile="0" resource="0"
-              file="../../../APAudioFramework/GUI Classes/Headers/AnalysisWindowComponent.h"/>
+        <FILE id="Ia1Pco" name="APAudioAnalysisMenu.h" compile="0" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Headers/APAudioAnalysisMenu.h"/>
+        <FILE id="LSTcyx" name="APAudioWindowManager.h" compile="0" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Headers/APAudioWindowManager.h"/>
+        <FILE id="lSjkbj" name="DFTSpectogram.h" compile="0" resource="0" file="../../../APAudioFramework/GUI Classes/Headers/DFTSpectogram.h"/>
         <FILE id="QjVtXa" name="WaveFormComponent.h" compile="0" resource="0"
               file="../../../APAudioFramework/GUI Classes/Headers/WaveFormComponent.h"/>
       </GROUP>
       <GROUP id="{C9BC11D3-232E-FE68-AF67-C9BEA28AACB9}" name="Implementations">
-        <FILE id="i8jkcA" name="AnalysisWindowComponent.cpp" compile="1" resource="0"
-              file="../../../APAudioFramework/GUI Classes/Implementations/AnalysisWindowComponent.cpp"/>
+        <FILE id="KGDZ94" name="APAudioAnalysisMenu.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Implementations/APAudioAnalysisMenu.cpp"/>
+        <FILE id="ksz2qY" name="APAudioWindowManager.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Implementations/APAudioWindowManager.cpp"/>
+        <FILE id="N9bjTv" name="DFTSpectogram.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/GUI Classes/Implementations/DFTSpectogram.cpp"/>
         <FILE id="FGHIkw" name="WaveFormComponent.cpp" compile="1" resource="0"
               file="../../../APAudioFramework/GUI Classes/Implementations/WaveFormComponent.cpp"/>
       </GROUP>
