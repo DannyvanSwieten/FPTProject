@@ -10,8 +10,9 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "AnalysisWindowComponent.h"
+#include "APAudioWindowManager.h"
 #include "WaveFormComponent.h"
+#include "APAudioAnalysisMenu.h"
 
 //==============================================================================
 /*
@@ -32,11 +33,10 @@ public:
 
 private:
     
-    std::unique_ptr<WaveFormComponent> _drawWindow1;
-    std::unique_ptr<AnalysisWindowComponent> _drawWindow2;
+    std::unique_ptr<WaveFormComponent> _waveFormWindow;
+    std::unique_ptr<APAudioWindowManager> _windowManager;
     std::unique_ptr<APAudioFileManager> _fileManager;
-    
-    double* _input = nullptr;
+    std::unique_ptr<APAudioAnalysisMenu> _analysisMenu;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)

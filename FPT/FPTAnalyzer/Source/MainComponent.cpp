@@ -16,14 +16,17 @@ MainContentComponent::MainContentComponent()
     
     _fileManager = std::make_unique<APAudioFileManager>();
     
-    _drawWindow1 = std::make_unique<WaveFormComponent>(_fileManager.get());
-    _drawWindow2 = std::make_unique<AnalysisWindowComponent>(_fileManager.get());
+    _waveFormWindow = std::make_unique<WaveFormComponent>(_fileManager.get());
+    _windowManager = std::make_unique<APAudioWindowManager>(_fileManager.get());
+    _analysisMenu = std::make_unique<APAudioAnalysisMenu>(_fileManager.get(), _windowManager.get(), _waveFormWindow.get());
     
-    _drawWindow1->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
-    _drawWindow2->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
+    _waveFormWindow->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
+    _windowManager->showWindow(1)->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
+    _analysisMenu->setBounds((getWidth()/5) * 4, 0, getWidth()/5, getHeight());
     
-    addAndMakeVisible(_drawWindow1.get());
-    addAndMakeVisible(_drawWindow2.get());
+    addAndMakeVisible(_waveFormWindow.get());
+    addAndMakeVisible(_windowManager->showWindow(1));
+    addAndMakeVisible(_analysisMenu.get());
 }
 
 MainContentComponent::~MainContentComponent()
