@@ -16,8 +16,13 @@ MainContentComponent::MainContentComponent()
     
     _fileManager = std::make_unique<APAudioFileManager>();
     
+    _waveFormViewPort = std::make_unique<Viewport>();
+    _waveFormViewPort->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
+    
     _waveFormWindow = std::make_unique<WaveFormComponent>(_fileManager.get());
     _waveFormWindow->setBounds(0, 0, ((getWidth()/ 5)*4)-2, (getHeight()/4)-2);
+    _waveFormViewPort->setViewedComponent(_waveFormWindow.get(), false);
+    _waveFormViewPort->setScrollBarThickness(10);
     
     _windowManager = std::make_unique<APAudioWindowManager>(_fileManager.get());
     _windowManager->getWindow(1)->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
@@ -28,6 +33,7 @@ MainContentComponent::MainContentComponent()
     addAndMakeVisible(_waveFormWindow.get());
     addAndMakeVisible(_windowManager->getWindow(1));
     addAndMakeVisible(_analysisMenu.get());
+    addAndMakeVisible(_waveFormViewPort.get());
 }
 
 MainContentComponent::~MainContentComponent()

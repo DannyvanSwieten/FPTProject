@@ -92,6 +92,8 @@
     </GROUP>
     <GROUP id="{07A9E0E7-1501-8413-D92E-3E8CD8148C8F}" name="GUI Classes">
       <GROUP id="{33035DA7-8CE7-91BF-6083-660AAC37D95C}" name="Headers">
+        <FILE id="qKpU73" name="APAudioScaleComponent.h" compile="0" resource="0"
+              file="../../../APAudioFramework/GUI Classes/APAudioScaleComponent.h"/>
         <FILE id="Ia1Pco" name="APAudioAnalysisMenu.h" compile="0" resource="0"
               file="../../../APAudioFramework/GUI Classes/Headers/APAudioAnalysisMenu.h"/>
         <FILE id="LSTcyx" name="APAudioWindowManager.h" compile="0" resource="0"
@@ -101,6 +103,8 @@
               file="../../../APAudioFramework/GUI Classes/Headers/WaveFormComponent.h"/>
       </GROUP>
       <GROUP id="{C9BC11D3-232E-FE68-AF67-C9BEA28AACB9}" name="Implementations">
+        <FILE id="wUBdWg" name="APAudioScaleComponent.cpp" compile="1" resource="0"
+              file="../../../APAudioFramework/GUI Classes/APAudioScaleComponent.cpp"/>
         <FILE id="KGDZ94" name="APAudioAnalysisMenu.cpp" compile="1" resource="0"
               file="../../../APAudioFramework/GUI Classes/Implementations/APAudioAnalysisMenu.cpp"/>
         <FILE id="ksz2qY" name="APAudioWindowManager.cpp" compile="1" resource="0"
@@ -123,8 +127,9 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
                        isDebug="1" optimisation="1" targetName="FPTAnalyzer"/>
-        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="0" optimisation="2" targetName="FPTAnalyzer" linkTimeOptimisation="1"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="64BitIntel"
+                       isDebug="0" optimisation="2" targetName="FPTAnalyzer" linkTimeOptimisation="1"
+                       fastMath="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../juce/modules"/>

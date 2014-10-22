@@ -37,6 +37,7 @@ private:
     std::unique_ptr<APAudioWindowManager> _windowManager;
     std::unique_ptr<APAudioFileManager> _fileManager;
     std::unique_ptr<APAudioAnalysisMenu> _analysisMenu;
+    std::unique_ptr<Viewport> _waveFormViewPort;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
