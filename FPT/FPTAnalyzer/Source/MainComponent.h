@@ -13,6 +13,7 @@
 #include "APAudioWindowManager.h"
 #include "WaveFormComponent.h"
 #include "APAudioAnalysisMenu.h"
+#include "FPTAnalyzerAudioProcessor.h"
 
 //==============================================================================
 /*
@@ -38,6 +39,10 @@ private:
     std::unique_ptr<APAudioFileManager> _fileManager;
     std::unique_ptr<APAudioAnalysisMenu> _analysisMenu;
     std::unique_ptr<Viewport> _waveFormViewPort;
+    
+    std::unique_ptr<AudioDeviceManager> _deviceManager;
+    std::unique_ptr<AudioProcessorPlayer> _processorPlayer;
+    std::unique_ptr<FPTAnalyzerAudioProcessor> _audioProcessor;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)

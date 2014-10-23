@@ -8,11 +8,18 @@
 
 #include "MainComponent.h"
 
-
 //==============================================================================
 MainContentComponent::MainContentComponent()
 {
     setSize (1200, 800);
+    
+    _deviceManager = std::make_unique<AudioDeviceManager>();
+    _processorPlayer = std::make_unique<AudioProcessorPlayer>();
+    _audioProcessor = std::make_unique<FPTAnalyzerAudioProcessor>();
+    
+    _deviceManager->initialise(0, 2, nullptr, true);
+    _processorPlayer->setProcessor(_audioProcessor.get());
+    _deviceManager->addAudioCallback(_processorPlayer.get());
     
     _fileManager = std::make_unique<APAudioFileManager>();
     
@@ -27,7 +34,7 @@ MainContentComponent::MainContentComponent()
     _windowManager = std::make_unique<APAudioWindowManager>(_fileManager.get());
     _windowManager->getWindow(1)->setBounds(0, (getHeight()/4), ((getWidth()/ 5)*4)-2, ((getHeight()/5)*3)-2);
     
-    _analysisMenu = std::make_unique<APAudioAnalysisMenu>(_fileManager.get(), _windowManager.get(), _waveFormWindow.get());
+    _analysisMenu = std::make_unique<APAudioAnalysisMenu>(_fileManager.get(), _windowManager.get(), _waveFormWindow.get(), _audioProcessor.get());
     _analysisMenu->setBounds((getWidth()/5) * 4, 0, getWidth()/5, getHeight());
     
     addAndMakeVisible(_waveFormWindow.get());
