@@ -123,7 +123,7 @@ void FPTAnalyzerAudioProcessor::changeProgramName (int index, const String& newN
 
 void FPTAnalyzerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    
+    _filePlayer->setSampleRate(sampleRate);
 }
 
 void FPTAnalyzerAudioProcessor::releaseResources()

@@ -35,6 +35,7 @@ public:
 private:
     
     std::unique_ptr<WaveFormComponent> _waveFormWindow;
+    std::unique_ptr<Viewport> _analysisViewPort;
     std::unique_ptr<APAudioWindowManager> _windowManager;
     std::unique_ptr<APAudioFileManager> _fileManager;
     std::unique_ptr<APAudioAnalysisMenu> _analysisMenu;
