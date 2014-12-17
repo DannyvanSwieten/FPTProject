@@ -46,12 +46,12 @@ void MainContentComponent::resized()
     _analysisComponentBottom->setBounds(0, getHeight()/2, (getWidth()/6) * 5, getHeight()/2);
 }
 
-AnalysisFactory& MainContentComponent::getAnalysisFactory()
+APAudio::Analysis::AnalysisFactory& MainContentComponent::getAnalysisFactory()
 {
     return _factory;
 }
 
-APAudioFileManager& MainContentComponent::getFileManager()
+APAudio::Audio::AudioFileManager& MainContentComponent::getFileManager()
 {
     return _fileManager;
 }

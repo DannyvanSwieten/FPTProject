@@ -12,7 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AnalysisComponent.h"
 #include "AnalysisFactory.h"
-#include "APAudioFileManager2.h"
+#include "AudioFileManager.h"
 #include "APAudioAnalysisMenu.h"
 #include <memory>
 
@@ -33,8 +33,8 @@ public:
     void paint (Graphics&);
     void resized();
     
-    AnalysisFactory& getAnalysisFactory();
-    APAudioFileManager& getFileManager();
+    APAudio::Analysis::AnalysisFactory& getAnalysisFactory();
+    APAudio::Audio::AudioFileManager& getFileManager();
     APAudioAnalysisMenu& getMenu(){return *_analysisMenu;};
     
 private:
@@ -44,8 +44,8 @@ private:
     
     std::unique_ptr<APAudioAnalysisMenu> _analysisMenu;
     
-    APAudioFileManager _fileManager;
-    AnalysisFactory _factory;
+    APAudio::Audio::AudioFileManager _fileManager;
+    APAudio::Analysis::AnalysisFactory _factory;
     
     std::vector<std::vector<float>> _pitch;
     std::vector<std::vector<float>> _amplitudes;
